@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com">
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            初识oracle数据库 | 
+        
+        Orange&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://u.cubeupload.com/orange/logo.png">
+    <link rel="icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="Orange&#39;s Blog">
+    <meta name="keywords" content="Orange,Blog,oracle,database,DB">
+    <meta name="theme-color" content="#FFA500">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?9LPOkz2mGpTIbimW1m6jOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?oWP/xO7B/HR5HyTeFEJzSw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night-eighties.min.css?as25J1I+1SbOMXftxplbHQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #FFB313;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #FFA500 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #FFA500 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #FFA500 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #FFB313;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://u.cubeupload.com/orange/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Orange&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://gh-orange.github.io/2021/03/23/oracleDB/">
+    <meta name="msapplication-navbutton-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Orange&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://gh-orange.github.io/2021/03/23/oracleDB/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="初识oracle数据库 | Orange&#39;s Blog">
+    <meta property="og:image" content="https://u.cubeupload.com/orange/logo.png">
+    <meta property="og:description" content="Orange&#39;s Blog">
+    <meta property="og:article:tag" content="oracle"> <meta property="og:article:tag" content="database"> <meta property="og:article:tag" content="DB"> 
+
+    
+        <meta property="article:published_time" content="Tue Mar 23 2021 21:25:00 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 20 2021 14:23:33 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://gh-orange.github.io/2021/03/23/oracleDB/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://gh-orange.github.io/2021/03/23/oracleDB/index.html",
+    "headline": "初识oracle数据库",
+    "datePublished": "Tue Mar 23 2021 21:25:00 GMT+0800",
+    "dateModified": "Sun Jun 20 2021 14:23:33 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Orange",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://u.cubeupload.com/orange/avatar.png"
+        },
+        "description": "Bring Fresh Things to Your"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Orange&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://u.cubeupload.com/orange/logo.png"
+        }
+    },
+    "keywords": ",oracle,database,DBOrange,Blog",
+    "description": "Orange&#39;s Blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:auto;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Install"><span class="post-toc-number">1.</span> <span class="post-toc-text">Install</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Manual"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Manual</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Docker</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Rule"><span class="post-toc-number">2.</span> <span class="post-toc-text">Rule</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Normal-Form-Rule"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Normal Form Rule</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Non-Normal-Form-Rule"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Non-Normal Form Rule</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Table-space"><span class="post-toc-number">3.</span> <span class="post-toc-text">Table space</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Principle"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Default"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Default</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Segment"><span class="post-toc-number">4.</span> <span class="post-toc-text">Segment</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#data-block"><span class="post-toc-number">5.</span> <span class="post-toc-text">data block</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Principle-1"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-1"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Extent-Only-in-Enterprise-Version"><span class="post-toc-number">6.</span> <span class="post-toc-text">Extent(Only in Enterprise Version)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#System"><span class="post-toc-number">7.</span> <span class="post-toc-text">System</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Principle-2"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-2"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Process"><span class="post-toc-number">8.</span> <span class="post-toc-text">Process</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Principle-3"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-3"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">Usage</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DBW-0-9a-z"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">DBW[0-9a-z]</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Principle-4"><span class="post-toc-number">8.3.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Usage-4"><span class="post-toc-number">8.3.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Data-Directory-Default-VIEWs"><span class="post-toc-number">9.</span> <span class="post-toc-text">Data Directory(Default VIEWs)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Principle-5"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-5"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Variable"><span class="post-toc-number">10.</span> <span class="post-toc-text">Variable</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Schema"><span class="post-toc-number">11.</span> <span class="post-toc-text">Schema</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Object"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">Object</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Table"><span class="post-toc-number">11.1.1.</span> <span class="post-toc-text">Table</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Type"><span class="post-toc-number">11.1.1.1.</span> <span class="post-toc-text">Type</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Constraint"><span class="post-toc-number">11.1.1.2.</span> <span class="post-toc-text">Constraint</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Column"><span class="post-toc-number">11.1.1.3.</span> <span class="post-toc-text">Column</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Index-of-H-eap-o-rganization-T-able"><span class="post-toc-number">11.1.1.4.</span> <span class="post-toc-text">Index(of H(eap)-o(rganization)-T(able))</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#View"><span class="post-toc-number">11.1.2.</span> <span class="post-toc-text">View</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sequence"><span class="post-toc-number">11.1.3.</span> <span class="post-toc-text">Sequence</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Synonym"><span class="post-toc-number">11.1.4.</span> <span class="post-toc-text">Synonym</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Log"><span class="post-toc-number">12.</span> <span class="post-toc-text">Log</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Log-group"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">Log group</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Log-1"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">Log</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Archive"><span class="post-toc-number">12.3.</span> <span class="post-toc-text">Archive</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL"><span class="post-toc-number">13.</span> <span class="post-toc-text">SQL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PL-SQL"><span class="post-toc-number">14.</span> <span class="post-toc-text">PL/SQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Constrant"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">Constrant</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Variable-1"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">Variable</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cursor"><span class="post-toc-number">14.3.</span> <span class="post-toc-text">Cursor</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Exception"><span class="post-toc-number">14.4.</span> <span class="post-toc-text">Exception</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Procedure"><span class="post-toc-number">15.</span> <span class="post-toc-text">Procedure</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Func"><span class="post-toc-number">16.</span> <span class="post-toc-text">Func</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Trigger"><span class="post-toc-number">17.</span> <span class="post-toc-text">Trigger</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Package"><span class="post-toc-number">18.</span> <span class="post-toc-text">Package</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#User"><span class="post-toc-number">19.</span> <span class="post-toc-text">User</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Role"><span class="post-toc-number">20.</span> <span class="post-toc-text">Role</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Backup"><span class="post-toc-number">21.</span> <span class="post-toc-text">Backup</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Flashback-Oracle-11g-support"><span class="post-toc-number">22.</span> <span class="post-toc-text">Flashback(Oracle 11g support)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ASM-Oracle-10g-support"><span class="post-toc-number">23.</span> <span class="post-toc-text">ASM(Oracle 10g support)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RAC"><span class="post-toc-number">24.</span> <span class="post-toc-text">RAC</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Optimize"><span class="post-toc-number">25.</span> <span class="post-toc-text">Optimize</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Execution-Plan"><span class="post-toc-number">25.1.</span> <span class="post-toc-text">Execution Plan</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Principle-6"><span class="post-toc-number">25.1.1.</span> <span class="post-toc-text">Principle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Usage-6"><span class="post-toc-number">25.1.2.</span> <span class="post-toc-text">Usage</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://www.kokojia.com/Public/images/upload/article/2016-03/56e41a6a5b5e4.png)">
+    
+            <p class="article-headline-p">
+                初识oracle数据库
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://u.cubeupload.com/orange/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Orange</strong>
+        <span>3月 23, 2021</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://gh-orange.github.io/2021/03/23/oracleDB/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/DB/">DB</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/database/">database</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/oracle/">oracle</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=初识oracle数据库&url=https://gh-orange.github.io/2021/03/23/oracleDB/index.html&pic=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=初识oracle数据库&url=https://gh-orange.github.io/2021/03/23/oracleDB/index.html&via=Orange" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://gh-orange.github.io/2021/03/23/oracleDB/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Orange&#39;s Blog&title=初识oracle数据库&summary=Orange&#39;s Blog&pics=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&url=https://gh-orange.github.io/2021/03/23/oracleDB/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><h2 id="Manual"><a href="#Manual" class="headerlink" title="Manual"></a>Manual</h2><ol>
+<li>request <a href="https://www.oracle.com/database/technologies/xe-prior-releases.html" target="_blank" rel="noopener">Oracle Database Express Edition (XE) Release 11.2.0.2.0 (11gR2)</a></li>
+<li>click <code>Oracle Database 11gR2 Express Edition for Linux x64</code></li>
+<li>copy the straight-download-link <code>https://download.oracle.com/otn/linux/oracle11g/xe/oracle-xe-11.2.0-1.0.x86_64.rpm.zip?AuthParam=...</code></li>
+<li>run <code>wget -b straight-download-link -P /opt/oracle</code> and wait…</li>
+<li>run <code>unzip /opt/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm.zip</code></li>
+<li>run <code>rpm -hvi /opt/oracle/oracle-xe-11.2.0-1.0.x86_64.rpm</code><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><code>docker run -d -p 1521:1521 -e ORACLE_ALLOW_REMOTE=true wnameless/oracle-xe-11g-r2</code><blockquote>
+<p>username: system</p>
+<p>username: sys</p>
+<p>password: oracle</p>
+<p>sid: xe</p>
+<p>also see <a href="https://github.com/wnameless/docker-oracle-xe-11g" target="_blank" rel="noopener">https://github.com/wnameless/docker-oracle-xe-11g</a></p>
+</blockquote>
+</li>
+</ol>
+<h1 id="Rule"><a href="#Rule" class="headerlink" title="Rule"></a>Rule</h1><h2 id="Normal-Form-Rule"><a href="#Normal-Form-Rule" class="headerlink" title="Normal Form Rule"></a>Normal Form Rule</h2><ol>
+<li>1st_Normal_Form<ol>
+<li>Single value</li>
+</ol>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>DATA</th>
+<th>CORRECT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JAVA</td>
+<td>T</td>
+</tr>
+<tr>
+<td>C,C++</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<pre><code>solution: C,C++-&gt;2 line
+</code></pre><ol>
+<li>Same domain</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>DATA</th>
+<th>CORRECT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abc</td>
+<td>T</td>
+</tr>
+<tr>
+<td>123</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<pre><code>solution: 123-&gt;&quot;123&quot;
+</code></pre><ol>
+<li>Diff column names</li>
+<li>Orderless<ol>
+<li>2nd_Normal_Form extends 1st_Normal_Form</li>
+</ol>
+</li>
+<li>non-exist partial dependency: all column dependency all primary key</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>F1(PK)</th>
+<th>F2(PK)</th>
+<th>DATA1(dependencyF1+F2)</th>
+<th>DATA2(dependencyF1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>CORRECT:T</td>
+<td>CORRECT:F</td>
+</tr>
+</tbody>
+</table>
+<pre><code>solution: column DATA2 move to F1&apos;s table
+</code></pre><ol>
+<li>3rd_Normal_Form extends 2nd_Normal_Form<ol>
+<li>non-exist transitive dependency: all column no dependency all non-primary key</li>
+</ol>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>F1(PK)</th>
+<th>DATA1</th>
+<th>DATA2(dependencyDATA1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>abc</td>
+<td>CORRECT:F</td>
+</tr>
+</tbody>
+</table>
+<pre><code>solution: column DATA1,DATA2 create to new table, add F2 column
+</code></pre><h2 id="Non-Normal-Form-Rule"><a href="#Non-Normal-Form-Rule" class="headerlink" title="Non-Normal Form Rule"></a>Non-Normal Form Rule</h2><ol>
+<li>add TOTAL column</li>
+<li>copy foreign table</li>
+<li>move-in foreign table</li>
+<li>add CURRENT columns</li>
+<li>add foreign’s foreign key column</li>
+</ol>
+<h1 id="Table-space"><a href="#Table-space" class="headerlink" title="Table space"></a>Table space</h1><h2 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">|-Database---------------------|</span><br><span class="line">| |-TableSpace-(muti *.dbf)--| |</span><br><span class="line">| | |-Segment--------------| | |</span><br><span class="line">| | | |-Extent-----------| | | |</span><br><span class="line">| | | |   |----------|   | | | |</span><br><span class="line">| | | |   |data block||  | | | |</span><br><span class="line">| | | |   |----------||  | | | |</span><br><span class="line">| | | |    |----------|  | | | |</span><br><span class="line">| | | |------------------| | | |</span><br><span class="line">| | |----------------------| | |</span><br><span class="line">| |--------------------------| |</span><br><span class="line">|------------------------------|</span><br></pre></td></tr></table></figure>
+<h2 id="Default"><a href="#Default" class="headerlink" title="Default"></a>Default</h2><ul>
+<li>users</li>
+<li>system</li>
+<li>sysaux: system auxiliary table space</li>
+<li>undotbs1: undo table space 1</li>
+<li>temp: temp table space for order or sum<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2></li>
+<li><p>for table space</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- readonly; show non-temp *.dbf</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> v$<span class="keyword">datafile</span>;</span><br><span class="line"><span class="comment">-- readonly; show relations between non-temp TableSpace&lt;-&gt;*.dbf</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dba_data_files;</span><br><span class="line"><span class="comment">-- readonly; show temp *.dbf</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> v$tempfile;</span><br><span class="line"><span class="comment">-- readonly; show relations between temp TableSpace&lt;-&gt;*.dbf</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dba_temp_files;</span><br><span class="line"><span class="comment">-- create (muti small data) permanent table space</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SMALLFILE</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">DATAFILE</span> <span class="string">'/tmp/myts.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>m <span class="keyword">AUTOEXTEND</span> <span class="keyword">on</span> <span class="keyword">NEXT</span> <span class="number">2</span>m <span class="keyword">MAXSIZE</span> <span class="keyword">unlimited</span>;</span><br><span class="line"><span class="comment">-- create (muti small data) temp table space and add to tgroup</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SMALLFILE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLESPACE</span> mytmpts TEMPFILE <span class="string">'/tmp/mytmpts.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>m <span class="keyword">AUTOEXTEND</span> <span class="keyword">on</span> <span class="keyword">NEXT</span> <span class="number">2</span>m <span class="keyword">MAXSIZE</span> <span class="keyword">unlimited</span> <span class="keyword">TABLESPACE</span> <span class="keyword">GROUP</span> tgroup;</span><br><span class="line"><span class="comment">-- create single big file table space</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">BIGFILE</span> <span class="keyword">TABLESPACE</span> mytmpts TEMPFILE <span class="string">'/tmp/mytmpts.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>m <span class="keyword">AUTOEXTEND</span> <span class="keyword">on</span> <span class="keyword">NEXT</span> <span class="number">2</span>m <span class="keyword">MAXSIZE</span> <span class="keyword">unlimited</span> <span class="keyword">TABLESPACE</span> <span class="keyword">GROUP</span> tgroup;</span><br><span class="line"><span class="comment">-- create undo table space</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNDO</span> <span class="keyword">TABLESPACE</span> myundots <span class="keyword">DATAFILE</span> <span class="string">'/tmp/myundots.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>m;</span><br><span class="line"><span class="comment">-- change status to offline &amp; flush cache</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">OFFLINE</span> <span class="keyword">NORMAL</span>;</span><br><span class="line"><span class="comment">-- change status to offline for recover</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">OFFLINE</span> <span class="keyword">FOR</span> <span class="keyword">RECOVER</span>;</span><br><span class="line"><span class="comment">-- change status to online</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">ONLINE</span>;</span><br><span class="line"><span class="comment">-- change enabled to r/w</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">READ</span> WRITE;</span><br><span class="line"><span class="comment">-- rename, make sure status is online</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">RENAME</span> <span class="keyword">TO</span> myts_rename;</span><br><span class="line"><span class="comment">-- resize</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">DATAFILE</span> <span class="string">'/tmp/myts'</span> <span class="keyword">RESIZE</span> <span class="number">5</span>m;</span><br><span class="line"><span class="comment">-- append *.dbf</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">ADD</span> <span class="keyword">DATAFILE</span> <span class="string">'/tmp/myts.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>m <span class="keyword">AUTOEXTEND</span> <span class="keyword">on</span> <span class="keyword">NEXT</span> <span class="number">2</span>m <span class="keyword">MAXSIZE</span> <span class="keyword">unlimited</span>, <span class="string">'/tmp/myts2.dbf'</span> <span class="keyword">SIZE</span> <span class="number">10</span>m <span class="keyword">AUTOEXTEND</span> <span class="keyword">on</span> <span class="keyword">NEXT</span> <span class="number">2</span>m <span class="keyword">MAXSIZE</span> <span class="keyword">unlimited</span>;</span><br><span class="line"><span class="comment">-- delete *.dbf</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">DROP</span> <span class="keyword">DATAFILE</span> <span class="string">'/tmp/myts2.dbf'</span>;</span><br><span class="line"><span class="comment">-- rename *.dbf, make sure offline before</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">OFFLINE</span> <span class="keyword">NORMAL</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">RENAME</span> <span class="keyword">DATAFILE</span> <span class="string">'/tmp/myts.dbf'</span> <span class="keyword">TO</span> <span class="string">'/tmp/myts.dbf'</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">ONLINE</span>;</span><br><span class="line"><span class="comment">-- delete table space but keep *.dbf</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span>;</span><br><span class="line"><span class="comment">-- delete table space within *.dbf</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> myts <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span> <span class="keyword">AND</span> <span class="keyword">DATAFILES</span>;</span><br><span class="line"><span class="comment">-- delete undo table space, make sure unused before</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> undo_tablespace = <span class="string">'undotbs1'</span>;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLESPACE</span> myundots <span class="keyword">INCLUDING</span> <span class="keyword">CONTENTS</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for table</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">TABLESPACE</span> myts;</span><br><span class="line"><span class="comment">-- change</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MOVE</span> <span class="keyword">TABLESPACE</span> myts;</span><br><span class="line"><span class="comment">-- change (C/B)LOB Segment</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MOVE</span> <span class="keyword">TABLESPACE</span> <span class="keyword">USERS</span> <span class="keyword">LOB</span>(lobcolumn1,lobcolumn2) <span class="keyword">STORE</span> <span class="keyword">AS</span>(<span class="keyword">TABLESPACE</span> myts);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for index</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">INDEX</span> myid <span class="keyword">REBUILD</span> <span class="keyword">TABLESPACE</span> myts;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Segment"><a href="#Segment" class="headerlink" title="Segment"></a>Segment</h1><ul>
+<li>Data Segment: include (C/B)LOB Segment</li>
+<li>Index Segment: head of table space if need</li>
+<li>Temp Segment: auto delete</li>
+<li>Rollback Segment: only in <code>system</code> table space<h1 id="data-block"><a href="#data-block" class="headerlink" title="data block"></a>data block</h1><h2 id="Principle-1"><a href="#Principle-1" class="headerlink" title="Principle"></a>Principle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|-----------------------------|</span><br><span class="line">|header(link Segment)         |</span><br><span class="line">|-----------------------------|</span><br><span class="line">|table dir(ink table)         |</span><br><span class="line">|-----------------------------|</span><br><span class="line">| row dir(link used row space)|</span><br><span class="line">|-----------------------------|</span><br><span class="line">|row space                    |</span><br><span class="line">|...                          |</span><br><span class="line">|-----------------------------|</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h2><p><strong>Run in SQL*Plus</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- readonly</span><br><span class="line">SHOW PARAMETER db_block_size</span><br></pre></td></tr></table></figure></p>
+<h1 id="Extent-Only-in-Enterprise-Version"><a href="#Extent-Only-in-Enterprise-Version" class="headerlink" title="Extent(Only in Enterprise Version)"></a><del>Extent</del>(Only in Enterprise Version)</h1><ul>
+<li><p>Hash</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">HASH</span>(column1) (</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart1 <span class="keyword">TABLESPACE</span> myts,</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">TABLESPACE</span> myts2</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add, make sure table was extented</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> mypart3 <span class="keyword">TABLESPACE</span> myts3;</span><br><span class="line"><span class="comment">-- merge</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MERGE</span> <span class="keyword">PARTITIONS</span> mypart1,mypart2 <span class="keyword">INTO</span> <span class="keyword">PARTITION</span> mypart1;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">DROP</span> <span class="keyword">PARTITION</span> mypart1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>List</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">LIST</span>(column2) (</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart1 <span class="keyword">VALUES</span>(<span class="string">'Y'</span>) <span class="keyword">TABLESPACE</span> myts,</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">VALUES</span>(<span class="string">'N'</span>) <span class="keyword">TABLESPACE</span> myts2</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add, make sure table was extented</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> mypart3 <span class="keyword">VALUES</span>(<span class="string">'y'</span>) <span class="keyword">TABLESPACE</span> myts3;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> mypart4 <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>) <span class="keyword">TABLESPACE</span> myts4;</span><br><span class="line"><span class="comment">-- merge</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MERGE</span> <span class="keyword">PARTITIONS</span> mypart1,mypart2 <span class="keyword">INTO</span> <span class="keyword">PARTITION</span> mypart1;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">DROP</span> <span class="keyword">PARTITION</span> mypart1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Range</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(column1) (</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart1 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(<span class="number">10</span>) <span class="keyword">TABLESPACE</span> myts,</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(MAXVALUE) <span class="keyword">TABLESPACE</span> myts2</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add within MAXVALUE, make sure table was extented</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">SPLIT</span> <span class="keyword">PARTITION</span> mypart2 <span class="keyword">AT</span>(<span class="number">20</span>) <span class="keyword">INTO</span>(</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">TABLESPACE</span> myts2,</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart3 <span class="keyword">TABLESPACE</span> myts3</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add without MAXVALUE, make sure table was extented and condition greater than any partitions</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> mypart4 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(<span class="number">20</span>) <span class="keyword">TABLESPACE</span> myts4;</span><br><span class="line"><span class="comment">-- merge</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MERGE</span> <span class="keyword">PARTITIONS</span> mypart1,mypart2 <span class="keyword">INTO</span> <span class="keyword">PARTITION</span> mypart1;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">DROP</span> <span class="keyword">PARTITION</span> mypart1;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>with Hash</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create into 2 range and each range divde into 3 hash</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(column1) </span><br><span class="line"><span class="keyword">SUBPARTITION</span> <span class="keyword">BY</span> <span class="keyword">HASH</span>(column2)</span><br><span class="line"><span class="keyword">SUBPARTITIONS</span> <span class="number">3</span> <span class="keyword">STORE</span> <span class="keyword">IN</span> (myts,myts2)</span><br><span class="line">(</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart1 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(<span class="number">10</span>),</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(MAXVALUE)</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add within MAXVALUE, make sure table was extented</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">SPLIT</span> <span class="keyword">PARTITION</span> mypart2 <span class="keyword">AT</span>(<span class="number">20</span>) <span class="keyword">INTO</span>(</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">TABLESPACE</span> myts2,</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart3 <span class="keyword">TABLESPACE</span> myts3</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add without MAXVALUE, make sure table was extented and condition greater than any partitions</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> mypart4 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(<span class="number">20</span>) <span class="keyword">TABLESPACE</span> myts4;</span><br><span class="line"><span class="comment">-- merge</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MERGE</span> <span class="keyword">PARTITIONS</span> mypart1,mypart2 <span class="keyword">INTO</span> <span class="keyword">PARTITION</span> mypart1;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">DROP</span> <span class="keyword">PARTITION</span> mypart1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>with List</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create into 2 range and each range divde into 2 list</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(column1) </span><br><span class="line"><span class="keyword">SUBPARTITION</span> <span class="keyword">BY</span> <span class="keyword">LIST</span>(column2)</span><br><span class="line"><span class="keyword">SUBPARTITIONS</span> <span class="number">3</span> <span class="keyword">STORE</span> <span class="keyword">IN</span> (myts,myts2)</span><br><span class="line">(</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart1 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(<span class="number">10</span>) (</span><br><span class="line">    <span class="keyword">SUBPARTITION</span> mypart1_1 <span class="keyword">VALUES</span>(<span class="string">'Y'</span>) <span class="keyword">TABLESPACE</span> myts,</span><br><span class="line">    <span class="keyword">SUBPARTITION</span> mypart1_2 <span class="keyword">VALUES</span>(<span class="string">'N'</span>) <span class="keyword">TABLESPACE</span> myts</span><br><span class="line">  ),</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(MAXVALUE) (</span><br><span class="line">    <span class="keyword">SUBPARTITION</span> mypart2_1 <span class="keyword">VALUES</span>(<span class="string">'Y'</span>) <span class="keyword">TABLESPACE</span> myts2,</span><br><span class="line">    <span class="keyword">SUBPARTITION</span> mypart2_2 <span class="keyword">VALUES</span>(<span class="string">'N'</span>) <span class="keyword">TABLESPACE</span> myts2</span><br><span class="line">  )</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add within MAXVALUE, make sure table was extented</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">SPLIT</span> <span class="keyword">PARTITION</span> mypart2 <span class="keyword">AT</span>(<span class="number">20</span>) <span class="keyword">INTO</span>(</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart2 <span class="keyword">TABLESPACE</span> myts2,</span><br><span class="line">  <span class="keyword">PARTITION</span> mypart3 <span class="keyword">TABLESPACE</span> myts3</span><br><span class="line">);</span><br><span class="line"><span class="comment">-- add without MAXVALUE, make sure table was extented and condition greater than any partitions</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">PARTITION</span> mypart4 <span class="keyword">VALUES</span> <span class="keyword">LESS</span> <span class="keyword">THAN</span>(<span class="number">20</span>) <span class="keyword">TABLESPACE</span> myts4;</span><br><span class="line"><span class="comment">-- merge</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MERGE</span> <span class="keyword">PARTITIONS</span> mypart1,mypart2 <span class="keyword">INTO</span> <span class="keyword">PARTITION</span> mypart1;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">DROP</span> <span class="keyword">PARTITION</span> mypart1;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="System"><a href="#System" class="headerlink" title="System"></a>System</h1><h2 id="Principle-2"><a href="#Principle-2" class="headerlink" title="Principle"></a>Principle</h2><p><img src="http://img.blog.itpub.net/blog/attachments/2011/05/25264937_201105101501121.jpeg" alt="S(ystem) G(lobal) A(rea)"></p>
+<ul>
+<li>Database buffer cache(DB_CACHE_SIZE): default size data block cache</li>
+<li>Shared pool(SHARE_POOL_SIZE)<ul>
+<li>Library cache: SQL or PL/SQL and theirs execution plan cache</li>
+<li>Data Dictionary(Default VIEWs) cache: sql and execution plan cache</li>
+<li>U(ser) G(lobal) A(rea): clustor session cache if need</li>
+</ul>
+</li>
+<li>Large pool: large objects cache for clustor<ul>
+<li>U(ser) G(lobal) A(rea): clustor session cache if need</li>
+</ul>
+</li>
+<li>Keep buffer cache(DB_KEEP_CACHE_SIZE): persistent data block cache</li>
+<li>Recycle buffer cache：ephemeral data block cache</li>
+<li>nK block size buffer(DB_2/4/8/16/32K_CACHE_SIZE): custom size data block cache</li>
+</ul>
+<h2 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h2><p><strong>Run in SQL*Plus</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- readonly</span></span><br><span class="line"><span class="keyword">SHOW</span> PARAMETER SGA_MAX_SIZE;</span><br><span class="line"><span class="keyword">SHOW</span> PARAMETER SGA_TARGET;</span><br><span class="line"><span class="comment">-- turn on A(utomatic) S(hared) M(emory) M(anagement), make sure SGA_MAX_SIZE &gt;= SGA_TARGET; Also can use `ALTER SESSION SET statistics_level=ALL`</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SESSION</span> <span class="keyword">SET</span> statistics_level=TYPICAL;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> SGA_MAX_SIZE=y;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> SGA_TARGET=x;</span><br><span class="line"><span class="comment">-- turn off A(utomatic) S(hared) M(emory) M(anagement)</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> SGA_TARGET=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><h2 id="Principle-3"><a href="#Principle-3" class="headerlink" title="Principle"></a>Principle</h2><p><img src="http://img.blog.itpub.net/blog/attachments/2011/05/25264937_201105101501124.jpeg" alt="P(rogram) G(lobal) A(rea)"></p>
+<h2 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage"></a>Usage</h2><p><strong>Run in SQL*Plus</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- readonly</span></span><br><span class="line"><span class="keyword">SHOW</span> PARAMETER PGA_AGGREGATE_TARGET;</span><br><span class="line"><span class="comment">-- turn on A(utomatic) P(rogram) M(emory) M(anagement), 20% of SGA_TARGET default </span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> PGA_AGGREGATE_TARGET=x;</span><br><span class="line"><span class="comment">-- turn off A(utomatic) P(rogram) M(emory) M(anagement)</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> PGA_AGGREGATE_TARGET=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="DBW-0-9a-z"><a href="#DBW-0-9a-z" class="headerlink" title="DBW[0-9a-z]"></a>DBW[0-9a-z]</h2><p>db writer process [0-9a-z]</p>
+<h3 id="Principle-4"><a href="#Principle-4" class="headerlink" title="Principle"></a>Principle</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     |---------------|  full |------------| DBW[0-9a-z] process |------|</span><br><span class="line">&gt;&gt;R&gt;&gt;|LRU Cache block||&gt;&gt;R&gt;&gt;&gt;| DIRTY LIST |&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;R&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|*.dbf ||</span><br><span class="line">&lt;&lt;W&lt;&lt;| (PGA Memery)  ||&lt;&lt;W&lt;&lt;&lt;|(PGA Memery)|&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;W&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;|(Disk)||</span><br><span class="line">     |---------------||      |------------|                     |------||</span><br><span class="line">      |---------------|                                          |------|</span><br></pre></td></tr></table></figure>
+<h3 id="Usage-4"><a href="#Usage-4" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- readonly; PADDR == 00 means not start</span></span><br><span class="line"><span class="keyword">SELECT</span> RAWTOHEX(PADDR), PSERIAL#, <span class="keyword">NAME</span>, DESCRIPTION, <span class="keyword">ERROR</span> <span class="keyword">FROM</span> v$bgprocess;</span><br></pre></td></tr></table></figure>
+<p><strong>Run in SQL*Plus</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- readonly</span></span><br><span class="line"><span class="keyword">SHOW</span> PARAMETER db_writer_process</span><br></pre></td></tr></table></figure></p>
+<h1 id="Data-Directory-Default-VIEWs"><a href="#Data-Directory-Default-VIEWs" class="headerlink" title="Data Directory(Default VIEWs)"></a>Data Directory(Default VIEWs)</h1><ul>
+<li>Static:<ul>
+<li>dba_xxx<strong>s</strong></li>
+<li>all_xxx<strong>s</strong>: authorized info &amp; user_xxx</li>
+<li>user_xxx<strong>s</strong></li>
+</ul>
+</li>
+<li>Dynamic:<ul>
+<li>gv$xxx(SELECT xxx FROM x$xxx): distributed</li>
+<li>v$xxx(SELECT xxx FROM gv$xxx WHERE inst_id = USERENV(‘instance’))<h2 id="Principle-5"><a href="#Principle-5" class="headerlink" title="Principle"></a>Principle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|--------------------|        exec         |--------------------|  instance auto  |--------|     exec    |-------|    |-------|</span><br><span class="line">|    bootstrap$      |&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|base table: obj$,...|&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;| x$xxx  |&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|gv$xxx |&gt;&gt;&gt;&gt;| v$xxx |</span><br><span class="line">|(SYSTEM table space)|&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|(SYSTEM table space)|&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|(Memory)|&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|(VIEW) |&gt;&gt;&gt;&gt;|(VIEW) |</span><br><span class="line">|--------------------| sql_text from *.bsq |--------------------| map from kernel |--------| catalog.sql |↑alias↑|    |↑alias↑|</span><br><span class="line">                                                                                                         |gv_$xxx|    |v_$xxx |</span><br><span class="line">                                                                                                         |-------|    |-------|</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>Oracle will automatic modify those base table data after each DDL(CREATE/ALTER/DROP)<br><strong>WARN: Only SYSDBA can access x$xxx</strong></p>
+<h2 id="Usage-5"><a href="#Usage-5" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- list all x$xxx</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> v$fixed_table;</span><br><span class="line"><span class="comment">-- list all Data Directories</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dict;</span><br></pre></td></tr></table></figure>
+<h1 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h1><p><strong>Run in SQL*Plus</strong></p>
+<ul>
+<li>Manual define<ul>
+<li>console: <strong>&amp;variable_name</strong> or <strong>&amp;&amp;variable_name</strong></li>
+<li><code>*.sql</code>: <strong>@variable_name</strong>, run <code>@ xxx/xxx.sql</code></li>
+</ul>
+</li>
+<li>Automic define<ul>
+<li><code>DEF(INE) key=value</code><h1 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h1><blockquote>
+<ul>
+<li>Oracle(owned by user): datas + objects</li>
+<li>MySQL: = database</li>
+<li>SQLServer: name of tables, fields, types and primary/foreign keys</li>
+</ul>
+</blockquote>
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><h3 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h3>organization type:</li>
+</ul>
+</li>
+<li><p>H(eap)-o(rganization)-T(able): unordered; physical <code>rowid</code></p>
+<ul>
+<li>without index(default): replace any unused(such as deleted) block from start to end or append to end when add</li>
+<li>with index: index physical <code>rowid</code> in index segment then add, update or delete<blockquote>
+<p>same as MySQL myISAM</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">ORGANIZATION</span> <span class="keyword">HEAP</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>I(ndex)-o(rganization)-T(able): ordered; logical <code>rowid</code>; all data are stored in B-Tree type index segment if <code>P(er)C(en)T_THRESHOLD</code> is 100</p>
+<blockquote>
+<p>same as MySQL innoDB</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">ORGANIZATION</span> <span class="keyword">INDEX</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>Cluster-Table: join data segments by foreign key</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,f1 VARCHAR2(<span class="number">11</span>)) CLUSTER mytb2(f1);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>External-Table: readonly external text</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- path of external text is '/tmp/my.txt'</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DIRECTORY</span> mydir <span class="keyword">AS</span> <span class="string">'/tmp'</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> mytb(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>)) <span class="keyword">ORGANIZATION</span> <span class="keyword">EXTERNAL</span>(</span><br><span class="line">  <span class="keyword">TYPE</span> oracle_loader</span><br><span class="line">  <span class="keyword">DEFAULT</span> <span class="keyword">DIRECTORY</span> mydir</span><br><span class="line">  <span class="keyword">ACCESS</span> <span class="keyword">PARAMETERS</span>(<span class="keyword">FIELDS</span> <span class="keyword">TERMINATED</span> <span class="keyword">BY</span> <span class="string">','</span>)</span><br><span class="line">  LOCATION(<span class="string">'my.txt'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h4><ul>
+<li>NUMBER(length, length after point)<ul>
+<li>INT</li>
+</ul>
+</li>
+<li>CHAR/NCHAR</li>
+<li>VARCHAR2/NVARCHAR2: <strong>In Oracle 11g, <code>VARCHAR2</code> and <code>NVARCHAR2</code>‘s max size limit is 4000</strong></li>
+<li>DATE</li>
+<li>CLOB/NCLOB</li>
+<li>BLOB</li>
+<li>BFILE</li>
+</ul>
+<p>start with ‘N’ means store type must be national charset(‘AF16UTF16’(default) or ‘UTF8’) char<br>start without ‘N’ means store type can be byte or database charset char</p>
+<h4 id="Constraint"><a href="#Constraint" class="headerlink" title="Constraint"></a>Constraint</h4><ul>
+<li>primary/foreign key</li>
+<li>not null</li>
+<li>unique</li>
+<li>check<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- add</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> <span class="keyword">CHECK</span> (column2 <span class="keyword">IN</span> (<span class="string">'Y'</span>,<span class="string">'N'</span>));</span><br><span class="line"><span class="comment">-- disable</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MODIFY</span> <span class="keyword">CONSTRAINT</span> xxx <span class="keyword">DISABLE</span>;</span><br><span class="line"><span class="comment">-- no-validate exist data</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MODIFY</span> <span class="keyword">CONSTRAINT</span> xxx <span class="keyword">DISABLE</span> <span class="keyword">NOVALIDATE</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Column"><a href="#Column" class="headerlink" title="Column"></a>Column</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- add</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> column1 varchar2;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">ADD</span> column2 varchar2;</span><br><span class="line"><span class="comment">-- remove</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">DROP</span> (column1,column2);</span><br><span class="line"><span class="comment">-- rename</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">RENAME</span> <span class="keyword">COLUMN</span> column1 <span class="keyword">TO</span> column3;</span><br><span class="line"><span class="comment">-- change type</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">MODIFY</span> column1 varchar2;</span><br><span class="line"><span class="comment">-- hide, manual modify base table if need undo</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> mytb <span class="keyword">SET</span> <span class="keyword">UNUSED</span> (column1,column2);</span><br></pre></td></tr></table></figure>
+<h4 id="Index-of-H-eap-o-rganization-T-able"><a href="#Index-of-H-eap-o-rganization-T-able" class="headerlink" title="Index(of H(eap)-o(rganization)-T(able))"></a>Index(of H(eap)-o(rganization)-T(able))</h4><ul>
+<li><p>B-Tree</p>
+<ul>
+<li><p>by value(default)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> myid <span class="keyword">ON</span> mytb(<span class="keyword">column</span>) <span class="keyword">TABLESPACE</span> myts;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>by Func</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">BITMAP</span> <span class="keyword">INDEX</span> myid <span class="keyword">ON</span> mytb(FUNC(<span class="keyword">column</span>)) <span class="keyword">TABLESPACE</span> myts;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><del>BitMap for limit status flag</del>(Only in Enterprise Version)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">BITMAP</span> <span class="keyword">INDEX</span> myid <span class="keyword">ON</span> mytb(<span class="keyword">column</span>) <span class="keyword">TABLESPACE</span> myts;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- merge and prune</span><br><span class="line">ALTER INDEX myid COALESCE DEALLOCATE UNUSED;</span><br><span class="line">-- prune rebuild</span><br><span class="line">ALTER INDEX myid REBUID;</span><br></pre></td></tr></table></figure>
+<h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><p>Simple map column support modified without check by default<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- checkout if modifiable</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> user_updatable_columns <span class="keyword">WHERE</span> table_name = <span class="string">'myv'</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a><del>Sequence</del></h3><h3 id="Synonym"><a href="#Synonym" class="headerlink" title="Synonym"></a>Synonym</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create or replace user's synonym</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">SYNONYM</span> mysy <span class="keyword">FOR</span> mytb;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> sys.mysy;</span><br><span class="line"><span class="comment">-- create public synonym</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">PUBLIC</span> <span class="keyword">SYNONYM</span> mysy <span class="keyword">FOR</span> mytb;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> mysy;</span><br><span class="line"><span class="comment">-- recreate</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYNONYM</span> mysy COMPILE;</span><br><span class="line"><span class="comment">-- delete user's synonym</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">SYNONYM</span> mysy;</span><br><span class="line"><span class="comment">-- delete public synonym</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PUBLIC</span> <span class="keyword">SYNONYM</span> mysy;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>dual</code> is public synonym of virtual table <code>sys.dual</code>(keeps one select result)</p>
+</blockquote>
+<h1 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h1><p>*.LOG files group by group id, Oracle will automic turn to override next log group if full</p>
+<h2 id="Log-group"><a href="#Log-group" class="headerlink" title="Log group"></a>Log group</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- show log group&lt;-&gt;*.log</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> v$<span class="keyword">logfile</span>;</span><br><span class="line"><span class="comment">-- create log group</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">ADD</span> <span class="keyword">LOGFILE</span> <span class="keyword">GROUP</span> <span class="number">4</span> (<span class="string">'/tmp/redo01.log'</span>,<span class="string">'/tmp/redo02.log'</span>) <span class="keyword">SIZE</span> <span class="number">5</span>m;</span><br><span class="line"><span class="comment">-- delete log group</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">DROP</span> <span class="keyword">LOGFILE</span> <span class="keyword">GROUP</span> <span class="number">4</span>;</span><br><span class="line"><span class="comment">-- clear log group's data</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">CLEAR</span> UNACHIVED <span class="keyword">LOGFILE</span> <span class="keyword">GROUP</span> <span class="number">4</span>;</span><br><span class="line"><span class="comment">-- turn next log group</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SWITCH</span> <span class="keyword">LOGFILE</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Log-1"><a href="#Log-1" class="headerlink" title="Log"></a>Log</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- add log to group, size must be equals</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">ADD</span> <span class="keyword">LOGFILE</span> <span class="keyword">MEMBER</span> <span class="string">'/tmp/redo03.log'</span> <span class="keyword">TO</span> <span class="keyword">GROUP</span> <span class="number">4</span>,<span class="string">'/tmp/redo04.log'</span> <span class="keyword">TO</span> <span class="keyword">GROUP</span> <span class="number">4</span>;</span><br><span class="line"><span class="comment">-- remove log from group, make sure group not in 'CURRENT' status</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">DROP</span> <span class="keyword">LOGFILE</span> <span class="keyword">MEMBER</span> <span class="string">'/tmp/redo04.log'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Archive"><a href="#Archive" class="headerlink" title="Archive"></a>Archive</h2><p>There are 2 override modes:</p>
+<ul>
+<li>without archive(default): each override without package history</li>
+<li>with archive: each override will package history to dests 1-31 before<br><strong>Run in SQL*Plus</strong><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- readonly; show default log dir, similar to `ALTER SYSTEM SET log_archive_dest_1 = 'LOCATION=USE_DB_RECOVERY_FILE_DEST';`</span></span><br><span class="line"><span class="keyword">SHOW</span> PARAMETER db_recovery_file_dest</span><br><span class="line"><span class="comment">-- readonly; show log dir</span></span><br><span class="line"><span class="keyword">SHOW</span> PARAMETER log_archive_dest</span><br><span class="line"><span class="comment">-- readonly; show current override mode</span></span><br><span class="line"><span class="keyword">ARCHIVE</span> <span class="keyword">LOG</span> <span class="keyword">LIST</span>;</span><br><span class="line"><span class="comment">-- override with archive, must be 'MOUNT' but not 'OPEN' status before, make sure dir is exist</span></span><br><span class="line">SHUTDOWN IMMEDIATE;</span><br><span class="line">STARTUP MOUNT;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">ARCHIVELOG</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> log_archive_dest_[<span class="number">1</span><span class="number">-31</span>] = <span class="string">'LOCATION=/tmp'</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">SET</span> log_archive_format = <span class="string">'redo%S_%R.%T'</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">DATABASE</span> <span class="keyword">OPEN</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p><code>merge</code>: similar <code>union</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MERGE</span> <span class="keyword">INTO</span> mytb1 <span class="keyword">USING</span> mytb2 <span class="keyword">ON</span> mytb2.column1 = mytb1.column1 <span class="keyword">WHEN</span> <span class="keyword">MATCHED</span> <span class="keyword">THEN</span> <span class="keyword">UPDATE</span> <span class="keyword">SET</span> mytb1.column2 = mytb2.column2 <span class="keyword">WHEN</span> <span class="keyword">NOT</span> <span class="keyword">MATCHED</span> <span class="keyword">THEN</span> <span class="keyword">INSERT</span> (column1,column2) <span class="keyword">VALUES</span>(mytb2.column1,mytb2.column2);</span><br></pre></td></tr></table></figure></p>
+<h1 id="PL-SQL"><a href="#PL-SQL" class="headerlink" title="PL/SQL"></a>PL/SQL</h1><h2 id="Constrant"><a href="#Constrant" class="headerlink" title="Constrant"></a>Constrant</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := <span class="string">'Y'</span>;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- use column type</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> mytb.column2%<span class="keyword">TYPE</span> := <span class="string">'Y'</span>;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<h2 id="Variable-1"><a href="#Variable-1" class="headerlink" title="Variable"></a>Variable</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  v1 <span class="built_in">INT</span>;</span><br><span class="line">  v2 VARCHAR2(1) := 'Y';</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'v1:'</span>||v1||<span class="string">' and v2:'</span>||v2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- use column type</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  v1 mytb.column1%<span class="keyword">TYPE</span>;</span><br><span class="line">  v2 mytb.column2%TYPE := 'Y';</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	DBMS_OUTPUT.PUT_LINE(<span class="string">'before v1:'</span>||v1||<span class="string">' and v2:'</span>||v2);</span><br><span class="line">  <span class="keyword">SELECT</span> column1,column2 <span class="keyword">INTO</span> v1,v2 <span class="keyword">FROM</span> mytb <span class="keyword">WHERE</span> column1 = <span class="number">1</span>;</span><br><span class="line">  DBMS_OUTPUT.PUT_LINE('after v1:'||v1||' and v2:'||v2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- use single row data</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  r mytb%ROWTYPE;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">SELECT</span> * <span class="keyword">INTO</span> r <span class="keyword">FROM</span> mytb <span class="keyword">WHERE</span> column1 = <span class="number">1</span>;</span><br><span class="line">  DBMS_OUTPUT.PUT_LINE('row.column1:'||r.column1||'row.column2'||r.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- use single custom data</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  <span class="keyword">TYPE</span> myrdtype <span class="keyword">IS</span> <span class="built_in">RECORD</span>(column1 <span class="built_in">INT</span>,column2 VARCHAR2(<span class="number">11</span>));</span><br><span class="line">  t myrdtype;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">SELECT</span> column1, column2 <span class="keyword">INTO</span> t <span class="keyword">FROM</span> mytb <span class="keyword">WHERE</span> column1 = <span class="number">1</span>;</span><br><span class="line">  DBMS_OUTPUT.PUT_LINE('column1:'||t.column1||' and column2:'||t.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- use multi data</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  <span class="keyword">TYPE</span> mytbtype1 <span class="keyword">IS</span> <span class="keyword">TABLE</span> <span class="keyword">OF</span> <span class="built_in">INT</span> <span class="keyword">INDEX</span> <span class="keyword">BY</span> BINARY_INTEGER;</span><br><span class="line">  TYPE mytbtype2 IS TABLE OF mytb%ROWTYPE INDEX BY BINARY_INTEGER;</span><br><span class="line">  TYPE myrdtype IS RECORD(column1 INT,column2 VARCHAR2(11));</span><br><span class="line">  TYPE mytbtype3 IS TABLE OF myrdtype INDEX BY BINARY_INTEGER;</span><br><span class="line">  tb1 mytbtype1;</span><br><span class="line">  tb2 mytbtype2;</span><br><span class="line">  tb3 mytbtype3;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  tb1(<span class="number">1</span>) := <span class="number">1</span>;</span><br><span class="line">  tb1(2) := 2;</span><br><span class="line">  tb1(3) := 3;</span><br><span class="line">  tb1.DELETE(3);</span><br><span class="line">  tb2(1).column1 := 1;</span><br><span class="line">  tb2(1).column2 := 'Y';</span><br><span class="line">  <span class="keyword">SELECT</span> * <span class="keyword">INTO</span> tb3 <span class="keyword">FROM</span> mytb;</span><br><span class="line">  DBMS_OUTPUT.PUT_LINE('count:'||tb1.COUNT||'tb1[1]:'||tb1(1)||' tb1[2]:'||tb1(2));</span><br><span class="line">  DBMS_OUTPUT.PUT_LINE('tb2[1].column1:'||tb2(1).column1||'tb2[1].column2:'||tb2(1).column2);</span><br><span class="line">  DBMS_OUTPUT.PUT_LINE('tb3[1].column1:'||tb3(1).column1||'tb3[1].column2:'||tb3(1).column2);  </span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<h2 id="Cursor"><a href="#Cursor" class="headerlink" title="Cursor"></a>Cursor</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="comment">-- readonly</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  <span class="comment">/* define; CAN NOT SET LENGTH OF params TYPE */</span></span><br><span class="line">  <span class="keyword">CURSOR</span> mycs(param1 <span class="built_in">INT</span>,param2 VARCHAR2 := <span class="string">'Y'</span>) <span class="keyword">IS</span></span><br><span class="line">    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> mytb <span class="keyword">WHERE</span> column1 = param1 <span class="keyword">and</span> column2 = param2;</span><br><span class="line">  <span class="comment">-- r mytb%ROWTYPE;</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="comment">-- OPEN mycs;</span></span><br><span class="line">  <span class="keyword">FOR</span> r <span class="keyword">IN</span> mycs</span><br><span class="line">  <span class="keyword">LOOP</span></span><br><span class="line">    <span class="comment">-- FETCH mycs INTO r;</span></span><br><span class="line">    <span class="comment">-- EXIT WHEN mycs%NOTFOUND;</span></span><br><span class="line">    DBMS_OUTPUT.PUT_LINE(<span class="string">'id:'</span>||mycs%ROWCOUNT||<span class="string">'row.column1:'</span>||r.column1||<span class="string">'row.column2'</span>||r.column2);</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">LOOP</span>;</span><br><span class="line">  <span class="comment">--  CLOSE mycs;</span></span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- updatable</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  <span class="comment">/* define; CAN NOT SET LENGTH OF params TYPE; NOWAIT means return fail immediately if OPEN parallel */</span></span><br><span class="line">  <span class="keyword">CURSOR</span> mycs(param1 <span class="built_in">INT</span>,param2 VARCHAR2 := <span class="string">'Y'</span>) <span class="keyword">IS</span></span><br><span class="line">    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> mytb <span class="keyword">WHERE</span> column1 = param1 <span class="keyword">and</span> column2 = param2 <span class="keyword">FOR</span> <span class="keyword">UPDATE</span> <span class="keyword">OF</span> column1,column2 <span class="keyword">NOWAIT</span>;</span><br><span class="line">  <span class="comment">-- r mytb%ROWTYPE;</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="comment">-- OPEN mycs;</span></span><br><span class="line">  <span class="keyword">FOR</span> r <span class="keyword">IN</span> mycs</span><br><span class="line">  <span class="keyword">LOOP</span></span><br><span class="line">    <span class="comment">-- FETCH mycs INTO r;</span></span><br><span class="line">    <span class="comment">-- EXIT WHEN mycs%NOTFOUND;</span></span><br><span class="line">    <span class="keyword">UPDATE</span> mytb <span class="keyword">SET</span> column2 = <span class="string">'N'</span> <span class="keyword">WHERE</span> <span class="keyword">CURRENT</span> <span class="keyword">OF</span> mycs;</span><br><span class="line">    DBMS_OUTPUT.PUT_LINE('id:'||mycs%ROWCOUNT||'row.column1:'||r.column1||'row.column2'||r.column2);</span><br><span class="line">  <span class="keyword">END</span> <span class="keyword">LOOP</span>;</span><br><span class="line">  <span class="comment">--  CLOSE mycs;</span></span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+<h2 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  v VARCHAR2(<span class="number">3</span>):=<span class="string">'数1'</span>;</span><br><span class="line">  e EXCEPTION;</span><br><span class="line">  <span class="keyword">PRAGMA</span> EXCEPTION_INT(e, <span class="number">-2290</span>);</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">CAST</span>(v <span class="keyword">as</span> <span class="built_in">INT</span>);</span><br><span class="line">  EXCEPTION WHEN VALUE_ERROR THEN</span><br><span class="line">    DBMS_OUTPUT.PUT_LINE('catch VALUE_ERROR');</span><br><span class="line">  <span class="keyword">INSERT</span> <span class="keyword">INTO</span> mytb(column2) <span class="keyword">VALUES</span>(v);</span><br><span class="line">  EXCEPTION WHEN e THEN</span><br><span class="line">    DBMS_OUTPUT.PUT_LINE('catch <span class="keyword">check</span> <span class="keyword">option</span> fail code <span class="number">-2290</span><span class="string">');</span></span><br><span class="line"><span class="string">  WHEN OTHERS THEN</span></span><br><span class="line"><span class="string">    /* error code [-20000 - -20999] */</span></span><br><span class="line"><span class="string">    RISE_APPLICATION_ERROR(-20000, '</span>uncatched <span class="keyword">exception</span><span class="string">');</span></span><br><span class="line"><span class="string">END;</span></span><br><span class="line"><span class="string">/</span></span><br></pre></td></tr></table></figure>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- list all Procedures</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> user_source;</span><br><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="comment">-- create or update without params, make sure name not end with '()'</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">PROCEDURE</span> myp <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := <span class="string">'Y'</span>;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update with input params</span></span><br><span class="line"><span class="comment">/* CAN NOT SET LENGTH OF params TYPE */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">PROCEDURE</span> myp(param1 <span class="keyword">IN</span> <span class="built_in">INT</span>, param2 <span class="keyword">IN</span> VARCHAR2 <span class="keyword">DEFAULT</span> <span class="string">'Y'</span>) <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := param2;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update with output params</span></span><br><span class="line"><span class="comment">/* CAN NOT SET LENGTH OF params TYPE */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">PROCEDURE</span> myp(param1 <span class="keyword">OUT</span> <span class="built_in">INT</span>, param2 <span class="keyword">OUT</span> VARCHAR2) <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := param2;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update with input and output params</span></span><br><span class="line"><span class="comment">/* CAN NOT SET LENGTH OF params TYPE; CAN NOT SET DEFAULT VALUE */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">PROCEDURE</span> myp(param1 <span class="keyword">IN</span> <span class="keyword">OUT</span> <span class="built_in">INT</span>, param2 <span class="keyword">IN</span> <span class="keyword">OUT</span> VARCHAR2) <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := param2;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  param1 := <span class="number">2</span></span><br><span class="line">  param2 := <span class="string">'F'</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">--- run without params</span></span><br><span class="line"><span class="keyword">CALL</span> myp();</span><br><span class="line"><span class="comment">--- run with input params</span></span><br><span class="line"><span class="keyword">CALL</span> myp(<span class="number">1</span>, <span class="string">'F'</span>);</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> myp;</span><br></pre></td></tr></table></figure>
+<p><strong>Run in SQL*Plus</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* transform EXEC into `BEGIN ... END;` */</span></span><br><span class="line"><span class="comment">--- run without params</span></span><br><span class="line">EXEC myp;</span><br><span class="line"><span class="comment">--- run with input params</span></span><br><span class="line">EXEC myp(1, 'F');</span><br><span class="line">EXEC myp(param2 =&gt; 'F', param1 =&gt; 1);</span><br><span class="line"><span class="comment">--- run with output params</span></span><br><span class="line">VARIABLE v1 NUMBER;</span><br><span class="line">VARIABLE v2 VARCHAR2(1);</span><br><span class="line"><span class="keyword">CALL</span> myp(:v1, :v2);</span><br><span class="line"><span class="keyword">SELECT</span> :v1, :v2 <span class="keyword">FROM</span> mytb;</span><br><span class="line"><span class="comment">--- run with input and output params</span></span><br><span class="line">VARIABLE v1 NUMBER;</span><br><span class="line">VARIABLE v2 VARCHAR2(1);</span><br><span class="line"><span class="keyword">CALL</span> myp(:v1, :v2);</span><br><span class="line"><span class="keyword">SELECT</span> :v1, :v2 <span class="keyword">FROM</span> mytb;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Func"><a href="#Func" class="headerlink" title="Func"></a>Func</h1><p>has one return<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="comment">-- create or update without params, make sure name not end with '()'</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> myf <span class="keyword">RETURN</span> VARCHAR2 <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := <span class="string">'Y'</span>;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line">  RETURN c;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update with input params</span></span><br><span class="line"><span class="comment">/* CAN NOT SET LENGTH OF params TYPE */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> myf(param1 <span class="keyword">IN</span> <span class="built_in">INT</span>, param2 <span class="keyword">IN</span> VARCHAR2 <span class="keyword">DEFAULT</span> <span class="string">'Y'</span>) <span class="keyword">RETURN</span> VARCHAR2 <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := param2;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line">  RETURN c;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update with output params</span></span><br><span class="line"><span class="comment">/* CAN NOT SET LENGTH OF params TYPE */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> myf(param1 <span class="keyword">OUT</span> <span class="built_in">INT</span>, param2 <span class="keyword">OUT</span> VARCHAR2) <span class="keyword">RETURN</span> VARCHAR2 <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := param2;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line">  RETURN c;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update with input and output params</span></span><br><span class="line"><span class="comment">/* CAN NOT SET LENGTH OF params TYPE; CAN NOT SET DEFAULT VALUE */</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> myf(param1 <span class="keyword">IN</span> <span class="keyword">OUT</span> <span class="built_in">INT</span>, param2 <span class="keyword">IN</span> <span class="keyword">OUT</span> VARCHAR2) <span class="keyword">RETURN</span> VARCHAR2 <span class="keyword">AS</span></span><br><span class="line">  c <span class="keyword">CONSTANT</span> VARCHAR2(<span class="number">1</span>) := param2;</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  param1 := <span class="number">2</span></span><br><span class="line">  param2 := <span class="string">'F'</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'c:'</span>||c);</span><br><span class="line">  RETURN c;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">--- run without params</span></span><br><span class="line"><span class="keyword">SELECT</span> myf() <span class="keyword">FROM</span> mytb;</span><br><span class="line"><span class="comment">--- run with input params</span></span><br><span class="line"><span class="keyword">SELECT</span> myf(<span class="number">1</span>, <span class="string">'F'</span>) <span class="keyword">FROM</span> mytb;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> myf;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Run in SQL*Plus</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--- run with output params</span></span><br><span class="line">VARIABLE v1 NUMBER;</span><br><span class="line">VARIABLE v2 VARCHAR2(1);</span><br><span class="line"><span class="keyword">SELECT</span> myf(:v1, :v2) <span class="keyword">FROM</span> mytb;</span><br><span class="line"><span class="keyword">SELECT</span> :v1, :v2 <span class="keyword">FROM</span> mytb;</span><br><span class="line"><span class="comment">--- run with input and output params</span></span><br><span class="line">VARIABLE v1 NUMBER;</span><br><span class="line">VARIABLE v2 VARCHAR2(1);</span><br><span class="line"><span class="keyword">SELECT</span> myf(:v1, :v2) <span class="keyword">FROM</span> mytb;</span><br><span class="line"><span class="keyword">SELECT</span> :v1, :v2 <span class="keyword">FROM</span> mytb;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Trigger"><a href="#Trigger" class="headerlink" title="Trigger"></a>Trigger</h1><ul>
+<li><p>attach</p>
+<ul>
+<li><p>DML(INSERT, UPDATE, DELETE, …) event</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="comment">-- create or update before insert</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgbi <span class="keyword">BEFORE</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> mytb <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'trigger before insert mytb new.column1='</span>||:NEW.column1||<span class="string">',new.column2='</span>||:NEW.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update before update</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgbu <span class="keyword">BEFORE</span> <span class="keyword">UPDATE</span> <span class="keyword">ON</span> mytb <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'trigger before update mytb old.column1='</span>||:OLD.column1||<span class="string">',old.column2='</span>||:OLD.column2||<span class="string">' new.column1='</span>||:NEW.column1||<span class="string">',new.column2='</span>||:NEW.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update after update</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgau <span class="keyword">AFTER</span> <span class="keyword">UPDATE</span> <span class="keyword">ON</span> mytb <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'trigger after update mytb old.column1='</span>||:OLD.column1||<span class="string">',old.column2='</span>||:OLD.column2||<span class="string">' new.column1='</span>||:NEW.column1||<span class="string">',new.column2='</span>||:NEW.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- create or update before delete</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgbd <span class="keyword">BEFORE</span> <span class="keyword">DELETE</span> <span class="keyword">ON</span> mytb <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'trigger before delete mytb old.column1='</span>||:OLD.column1||<span class="string">',old.column2='</span>||:OLD.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br><span class="line"><span class="comment">-- disable</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TRIGGER</span> mytgbi <span class="keyword">DISABLE</span>;</span><br><span class="line"><span class="comment">-- disable for table</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TRIGGER</span> mytb <span class="keyword">DISABLE</span> ALL <span class="keyword">TRIGGERS</span>;</span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TRIGGER</span> mytgbi;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>System event<br><strong>WARN: Only SYSDBA can create system event trigger</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="comment">-- create or update after loggon</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgau <span class="keyword">AFTER</span> LOGGON <span class="keyword">ON</span> <span class="keyword">DATABASE</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'trigger after loggon user='</span>||<span class="keyword">USER</span>||<span class="string">' date='</span>||<span class="keyword">SYSDATE</span>);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DDL(CREATE, DROP, ALTER, …) event<br><strong>WARN: Only SYSDBA can create ddl event trigger</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- make sure `SET SERVEROUTPUT ON` before if Run in SQL*Plus</span></span><br><span class="line"><span class="comment">-- create or update after create</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgac <span class="keyword">AFTER</span> <span class="keyword">CREATE</span> <span class="keyword">ON</span> <span class="keyword">DATABASE</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  DBMS_OUTPUT.PUT_LINE(<span class="string">'trigger after create user='</span>||<span class="keyword">USER</span>||<span class="string">' obj_name='</span>||SYS.DICTIONARY_OBJ_NAME||<span class="string">' obj_type='</span>||SYS.DICTIONARY_OBJ_TYPE||<span class="string">' date='</span>||<span class="keyword">SYSDATE</span>);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>instead<br><strong>WARN: Only instead events on View</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- create or update instead of insert</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> mytgii INSTEAD <span class="keyword">OF</span> <span class="keyword">INSERT</span> <span class="keyword">ON</span> myv <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">INSERT</span> <span class="keyword">INTO</span> mytb(column1, column2) <span class="keyword">VALUES</span>(:NEW.column1, :NEW.column2);</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h1><ul>
+<li>define</li>
+<li>body<ul>
+<li>Procedure</li>
+<li>Func<blockquote>
+<p><code>PUT_LINE</code> is one of procedures in <code>DBMS_OUTPUT</code> package</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="User"><a href="#User" class="headerlink" title="User"></a>User</h1><h1 id="Role"><a href="#Role" class="headerlink" title="Role"></a>Role</h1><h1 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h1><ul>
+<li>expdp(Oracle 11g support): hot backup to files</li>
+<li>rman: hot or cold backup to blocks</li>
+</ul>
+<h1 id="Flashback-Oracle-11g-support"><a href="#Flashback-Oracle-11g-support" class="headerlink" title="Flashback(Oracle 11g support)"></a>Flashback(Oracle 11g support)</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> xxx, version_operation, version_starttime, version_endtime <span class="keyword">FROM</span> mytb <span class="keyword">VERSION</span> <span class="keyword">BETWEEN</span> <span class="keyword">MINVALUE</span> <span class="keyword">AND</span> MAXVALUE;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Table commited DML(INSERT, UPDATE, DELETE, …)</li>
+<li>Drop</li>
+<li>Database(off default)</li>
+</ul>
+<h1 id="ASM-Oracle-10g-support"><a href="#ASM-Oracle-10g-support" class="headerlink" title="ASM(Oracle 10g support)"></a>ASM(Oracle 10g support)</h1><h1 id="RAC"><a href="#RAC" class="headerlink" title="RAC"></a>RAC</h1><h1 id="Optimize"><a href="#Optimize" class="headerlink" title="Optimize"></a>Optimize</h1><h2 id="Execution-Plan"><a href="#Execution-Plan" class="headerlink" title="Execution Plan"></a>Execution Plan</h2><h3 id="Principle-6"><a href="#Principle-6" class="headerlink" title="Principle"></a>Principle</h3><p><img src="https://images0.cnblogs.com/blog2015/621118/201505/060959368135001.png" alt="SQL process principle"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">     |-------|              DQL                 |---------------------------------| Execution |----------|  |------|</span><br><span class="line"> SQL | Query |&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|R(ule)/C(ost)-B(ased)-O(ptimizer)|&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|Share Pool|&gt;&gt;|      ||</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;|Parsing| DML(INSERT, UPDATE, DELETE, ...) |---------------------------------|    Plan   |  (SGA)   |  |Result||</span><br><span class="line">     |       |                                  DDL/DCL                                       |----------|  |      ||</span><br><span class="line">     |-------|&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;|------||</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;|------|</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Cardinality Feedback will add A(ctual)-Rows hint for the same DQL or DML(INSERT, UPDATE, DELETE, …) when use C(ost)-B(ased)-O(ptimizer) and A(ctual)-Rows large diff than E(xpect)-Rows at first time <strong>(Oracle 11.2g support)</strong></p>
+</blockquote>
+<h3 id="Usage-6"><a href="#Usage-6" class="headerlink" title="Usage"></a>Usage</h3><ul>
+<li><p>Estimated</p>
+<ul>
+<li><p>Explain plan(key <code>F5</code> in <code>PL/SQL Developer</code>): store in <code>plan_table</code>(public synonym of session’s temp table <code>SYS.PLAN_TABLE$</code>) created by <code>catplan.sql</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- save execution plan for `SELECT * FROM dual`</span></span><br><span class="line"><span class="keyword">EXPLAIN</span> PLAN <span class="keyword">FOR</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dual;</span><br><span class="line"><span class="comment">-- query last execution plan; pretty format `SELECT * FROM PLAN_TABLE`</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TABLE</span>(dbms_xplan.display(<span class="string">'PLAN_TABLE'</span>, <span class="literal">null</span>, <span class="string">'ADVANCED'</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Auto trace(<strong>Run in SQL*Plus</strong>): same as Explain plan</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- query execution plan for `SELECT * FROM dual`</span></span><br><span class="line"><span class="keyword">SET</span> AUTOTRACE <span class="keyword">ON</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Actual</p>
+<ul>
+<li><p>Statistics: store in session’s temp view <code>v$sql_plan_statistics_all</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- save execution plan for `SELECT * FROM dual`; Also can use hint `SELECT /*+ gather_plan_statistics*/ * FROM dual`</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SESSION</span> <span class="keyword">SET</span> statistics_level=ALL;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dual;</span><br><span class="line"><span class="comment">-- query shared pool's last sql cursor's execution plan; pretty format `SELECT * FROM v$sql_plan_statistics_all`</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TABLE</span>(dbms_xplan.display_cursor(<span class="literal">null</span>, <span class="literal">null</span>, <span class="string">'ADVANCED ALLSTATS'</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>A(utomatic) W(orkload) R(epository):  store in views <code>wrm$_*</code> and <code>wrh$_*</code>(instead of Statspack)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- save execution plan for `SELECT * FROM dual`, make sure session's statistics_level &gt;= TYPICAL</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dual;</span><br><span class="line"><span class="keyword">CALL</span> dbms_workload_repository.create_snapshot();</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SYSTEM</span> <span class="keyword">FLUSH</span> <span class="keyword">shared_pool</span>;</span><br><span class="line"><span class="comment">-- query shared pool's  execution plan; pretty format `SELECT * FROM PLAN_TABLE`</span></span><br><span class="line"><span class="keyword">SELECT</span> sql_id <span class="keyword">FROM</span> v$sqlarea <span class="keyword">WHERE</span> sql_text <span class="keyword">LIKE</span> <span class="string">'SELECT * FROM dual'</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TABLE</span>(dbms_xplan.display_awr(<span class="string">'sql_id'</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="string">'ADVANCED ALLSTATS'</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Trace Dump: store <code>*.trc</code> in <code>user_dump_dest</code> dir; you can use tool <code>tkprof</code> pretty format file</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- query trace dump dir</span></span><br><span class="line"><span class="keyword">show</span> parameter user_dump_dest;</span><br><span class="line"><span class="comment">-- query SID and Serial#</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> V$<span class="keyword">SESSION</span>;</span><br><span class="line"><span class="comment">-- turn on sql_trace for session; Also can use `ALTER SESSION SET sql_trace=TRUE` for current session</span></span><br><span class="line"><span class="keyword">EXECUTE</span> dbms_system.set_sql_trace_in_session(<span class="keyword">SID</span>, <span class="built_in">Serial</span>#, <span class="literal">TRUE</span>);</span><br><span class="line"><span class="comment">-- save execution plan for `SELECT * FROM dual`</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dual;</span><br><span class="line"><span class="comment">-- turn off sql_trace for session; Also can use `ALTER SESSION SET sql_trace=FALSE` for current session</span></span><br><span class="line"><span class="keyword">EXECUTE</span> dbms_system.set_sql_trace_in_session(<span class="keyword">SID</span>, <span class="built_in">Serial</span>#, <span class="literal">FALSE</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>10046 Event: store <code>*.trc</code> in <code>user_dump_dest</code> dir; you can use tool <code>tkprof</code> pretty format file</p>
+<ul>
+<li>lv1: same as Trace Dump</li>
+<li>lv4: lv1 + bind values</li>
+<li>lv8: lv1 + events</li>
+<li>lv12: lv4 + lv8<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- query trace dump dir</span></span><br><span class="line"><span class="keyword">show</span> parameter user_dump_dest;</span><br><span class="line"><span class="comment">-- turn on 10046 event trace for current session</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SESSION</span> <span class="keyword">SET</span> <span class="keyword">EVENTS</span> <span class="string">'10046 TRACE NAME CONTEXT FOREVER, LEVEL 12'</span>;</span><br><span class="line"><span class="comment">-- save execution plan for `SELECT * FROM dual`</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> dual;</span><br><span class="line"><span class="comment">-- turn off 10046 event trace for current session</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">SESSION</span> <span class="keyword">SET</span> <span class="keyword">EVENTS</span> <span class="string">'10046 TRACE NAME CONTEXT OFF'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <img id='author-avatar' width='20px' alt='CC许可协议' title='CC许可协议' src='https://creativecommons.org/images/deed/cc-logo.jpg' /><img id='author-avatar' width='20px' alt='署名' title='署名' src='https://creativecommons.org/images/deed/by.png' /><img id='author-avatar' width='20px' alt='非商业性使用' title='非商业性使用' src='https://creativecommons.org/images/deed/nc.png' /><img id='author-avatar' width='20px' alt='相同方式共享' title='相同方式共享' src='https://creativecommons.org/images/deed/sa.png' /><br/>本文采用 <a rel='nofollow noopener noreferrer' href='https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh' target='_blank'>CC BY-NC-SA 3.0 Unported</a> 协议进行许可
+                        </strong>
+                        <!--
+                        <br>
+                        <strong>本文链接：</strong><a href="https://gh-orange.github.io/2021/03/23/oracleDB/">https://gh-orange.github.io/2021/03/23/oracleDB/</a>
+                        -->
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTgzNi8xMjM3Mg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/06/20/JSClass/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/12/25/gitCommands/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://u.cubeupload.com/orange/sidebarheader.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://u.cubeupload.com/orange/avatar.png" alt="Orange's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        cz335360@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:cz335360@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">11</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/剑指Offer/">剑指Offer<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据库/">数据库<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂项/">杂项<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/框架/">框架<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags/" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/links/" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">link</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about/" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+    
+    <!-- Visiters Number  -->
+    
+        
+            <li>
+                <a href="javascript:void(0)">
+                    
+                        <i class="material-icons sidebar-material-icons">insert_chart</i>
+                    
+                    浏览量
+                    <span id="busuanzi_container_site_uv">
+                        <span id="busuanzi_value_site_uv" class="sidebar-badge"></span>
+                    </span>
+                </a>
+            </li>
+            
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/cz111000" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Orange's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">由 <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a> 强力驱动</div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#FA0'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FA0, 0 0 15px #FA0'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FA0',
+        'border-left-color': '#FA0'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- Sidecar Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'cz111000-github-io/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

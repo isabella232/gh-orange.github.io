@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com">
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            排序算法总结(上) | 
+        
+        Orange&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://u.cubeupload.com/orange/logo.png">
+    <link rel="icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="Orange&#39;s Blog">
+    <meta name="keywords" content="Orange,Blog,排序,算法,冒泡,插入,归并">
+    <meta name="theme-color" content="#FFA500">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?9LPOkz2mGpTIbimW1m6jOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?oWP/xO7B/HR5HyTeFEJzSw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night-eighties.min.css?as25J1I+1SbOMXftxplbHQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #FFB313;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #FFA500 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #FFA500 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #FFA500 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #FFB313;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://u.cubeupload.com/orange/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Orange&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://gh-orange.github.io/2018/03/22/排序算法总结(上)/">
+    <meta name="msapplication-navbutton-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Orange&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://gh-orange.github.io/2018/03/22/排序算法总结(上)/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="排序算法总结(上) | Orange&#39;s Blog">
+    <meta property="og:image" content="https://u.cubeupload.com/orange/logo.png">
+    <meta property="og:description" content="Orange&#39;s Blog">
+    <meta property="og:article:tag" content="排序"> <meta property="og:article:tag" content="算法"> <meta property="og:article:tag" content="冒泡"> <meta property="og:article:tag" content="插入"> <meta property="og:article:tag" content="归并"> 
+
+    
+        <meta property="article:published_time" content="Thu Mar 22 2018 21:10:22 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 20 2021 14:23:33 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://gh-orange.github.io/2018/03/22/排序算法总结(上)/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://gh-orange.github.io/2018/03/22/排序算法总结(上)/index.html",
+    "headline": "排序算法总结(上)",
+    "datePublished": "Thu Mar 22 2018 21:10:22 GMT+0800",
+    "dateModified": "Sun Jun 20 2021 14:23:33 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Orange",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://u.cubeupload.com/orange/avatar.png"
+        },
+        "description": "Bring Fresh Things to Your"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Orange&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://u.cubeupload.com/orange/logo.png"
+        }
+    },
+    "keywords": ",排序,算法,冒泡,插入,归并Orange,Blog",
+    "description": "Orange&#39;s Blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:auto;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#算法"><span class="post-toc-number">1.</span> <span class="post-toc-text">算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What’s-Algorithm"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">What’s Algorithm ?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#How-to-Assess-Algorithm"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">How to Assess Algorithm ?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DIY-Algorithm-！"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">DIY Algorithm ！</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Comparison"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Comparison .</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://static.scientificamerican.com/sciam/assets/Image/iStock_000016294159_small.jpg)">
+    
+            <p class="article-headline-p">
+                排序算法总结(上)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://u.cubeupload.com/orange/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Orange</strong>
+        <span>3月 22, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://gh-orange.github.io/2018/03/22/排序算法总结(上)/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/冒泡/">冒泡</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/归并/">归并</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/排序/">排序</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/插入/">插入</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/算法/">算法</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=排序算法总结(上)&url=https://gh-orange.github.io/2018/03/22/排序算法总结(上)/index.html&pic=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=排序算法总结(上)&url=https://gh-orange.github.io/2018/03/22/排序算法总结(上)/index.html&via=Orange" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://gh-orange.github.io/2018/03/22/排序算法总结(上)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Orange&#39;s Blog&title=排序算法总结(上)&summary=Orange&#39;s Blog&pics=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&url=https://gh-orange.github.io/2018/03/22/排序算法总结(上)/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
+<h2 id="What’s-Algorithm"><a href="#What’s-Algorithm" class="headerlink" title="What’s Algorithm ?"></a>What’s Algorithm ?</h2><p>提及“<strong>算法</strong>”，小白面对高大上说词仰慕之心油然而生 @o@</p>
+<p>然而，算法并不神秘 = =</p>
+<p>顾名思义，<strong>计算方法</strong>简称算法（什，什，什，什么！这么简单？→_→）</p>
+<p>举个栗子：</p>
+<blockquote>
+<p>从小学就接触的乘法：对 n+n+n+…+n 的简写就是一种算法（递推法<a href="递推法即是把一个复杂的庞大的计算过程转化为简单过程的多次重复">^A</a>）,<br>算法注定要有输入与输出：算式中的 n 即为输入，乘积即为输出。</p>
+</blockquote>
+<p>注：</p>
+<ul>
+<li>算法中的状态变化是不确定的</li>
+<li>算法必定能在执行有限个步骤之后终止</li>
+<li>某些算法加入随机输入，称为随机化算法</li>
+</ul>
+<h2 id="How-to-Assess-Algorithm"><a href="#How-to-Assess-Algorithm" class="headerlink" title="How to Assess Algorithm ?"></a>How to Assess Algorithm ?</h2><p>对算法的评定分析主要从<strong>时间复杂度</strong>(所耗时间长短)与<strong>空间复杂度</strong>(空间开支大小)来考虑。</p>
+<p>关于复杂度的计算需要引入如下渐近记号：</p>
+<blockquote>
+<p><em>大O记号：</em></p>
+<blockquote>
+<p><em>O(g(n)) = { f(n) : 存在正常数c和n0 ，使对所有的n &gt;= n0，都有 0 &lt;= f(n) &lt;= cg(n) }</em></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><em>大Ω记号：</em></p>
+<blockquote>
+<p><em>Ω(g(n)) = { f(n) : 存在正常数c和n0 ，使对所有的n &gt;= n0，都有 0 &lt;= cg(n) &lt;= f(n) }</em></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><em>大Θ记号：</em></p>
+<blockquote>
+<p><em>Θ(g(n)) = { f(n) : 存在正常数c1和c2和n0 ，使对所有的n &gt;= n0，都有 0 &lt;= c1g(n) &lt;= f(n) &lt;= c2g(n) }</em></p>
+</blockquote>
+</blockquote>
+<p><em>数学证明资料：<a href="http://www.cnblogs.com/zabery/archive/2011/07/19/2110994.html" target="_blank" rel="noopener">计算机算法分析之渐进记号</a></em></p>
+<p>具体计算方式将于实例中给出 ～(~▽~)～</p>
+<h2 id="DIY-Algorithm-！"><a href="#DIY-Algorithm-！" class="headerlink" title="DIY Algorithm ！"></a>DIY Algorithm ！</h2><p>以下给出排序算法C++代码：</p>
+<p>1.冒泡排序（Bubble Sort）<a href="冒泡排序的思想是让最大的数浮动到数组最后的位置，其次大的数浮动到数组倒数第二个位置，依次推类">^B</a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span>;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n - <span class="number">1</span> - i;j++)</span><br><span class="line">			<span class="keyword">if</span>(arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">				arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>时间复杂度分析：</p>
+<p>考虑最坏情况–将逆序数列变为顺序（此情况下，每一次比较都需要进行交换运算） T_T</p>
+<blockquote>
+<p>再举个栗子：<strong>数列 5 4 3 2 1 进行冒泡升序排列</strong><br>第一次外层循环从第一个数5开始到倒数第二个数2结束，<br>共进行4次比较交换运算，5移到末尾。<br>第二次外层循环从第一个数4开始到倒数第三个数2结束。<br>共进行3次比较交换运算，4移到倒数第二个数。<br>……<br>依次推类，总比较次数为 4 + 3 + 2 + 1 = 10 次</p>
+</blockquote>
+<p>证明：</p>
+<p>根据数学归纳法,对于n位的数列则有比较次数为<code>(n-1) + (n-2) + ... + 1 = n \* (n - 1) / 2 = (n^2 - n) / 2</code></p>
+<p>如图<img src="http://images.51cto.com/files/uploadimg/20110826/211021569.jpg" alt="比较次数"></p>
+<p>若n = 10000，则<code>(n^2 - n) / 2 = (100000000 - 10000) / 2</code></p>
+<p>相对 100000000 来说 10000 微乎其微，故总计算次数约为<code>0.5 \* N^2</code></p>
+<p>用O(N^2)就表示了其数量级（忽略前面系数0.5）</p>
+<p>得 <strong>冒泡排序的时间复杂度为O(N^2)</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//冒泡排序改进版：若遍历中得知数组有序则结束排序</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">	T temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n - <span class="number">1</span> - i;j++)</span><br><span class="line">			<span class="keyword">if</span>(arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="literal">true</span>;</span><br><span class="line">				temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">				arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">if</span>(flag == <span class="literal">false</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>改进算法后，对于一个有序数组完成一次外层循环后就会结束，共发生 N - 1 次比较，故升级版冒泡排序在最优情况下的时间复杂度为O(N)</p>
+<p>2.插入排序(Insert Sort)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)</span><br><span class="line">		<span class="keyword">if</span>(arr[i] &lt; arr[i - <span class="number">1</span>])</span><br><span class="line">		&#123;</span><br><span class="line">			temp = arr[i];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = i - <span class="number">1</span>;j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; temp;j--)</span><br><span class="line">				arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">			arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>资料：<a href="http://baidu.ku6.com/watch/05586300336858352205.html" target="_blank" rel="noopener">插入排序舞蹈</a></em></p>
+<p>3.*归并排序（Merge Sort）<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(T arr[],T temp[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &lt; last)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (start + last) / <span class="number">2</span>;</span><br><span class="line">		mergeSort(arr,temp,start,mid);</span><br><span class="line">		mergeSort(arr,temp,mid + <span class="number">1</span>,last);</span><br><span class="line">		arrUnion(arr,temp,start,mid,last);</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">arrUnion</span><span class="params">(T arr[],T temp[],<span class="keyword">int</span> start,<span class="keyword">int</span> mid,<span class="keyword">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,k;</span><br><span class="line">	i = start;</span><br><span class="line">	j = mid + <span class="number">1</span>;</span><br><span class="line">	k = start;</span><br><span class="line">	<span class="keyword">while</span>(i != mid + <span class="number">1</span> &amp;&amp; j != last + <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(arr[i] &lt; arr[j])</span><br><span class="line">			temp[k++] = arr[i++];</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			temp[k++] = arr[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i != mid + <span class="number">1</span>)</span><br><span class="line">		temp[k++] = arr[i++];</span><br><span class="line">	<span class="keyword">while</span>(j != last + <span class="number">1</span>)</span><br><span class="line">		temp[k++] = arr[j++];</span><br><span class="line">	<span class="keyword">for</span>(i = start;i &lt; last + <span class="number">1</span>;i++)</span><br><span class="line">		arr[i] = temp[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>资料：<a href="http://visualgo.net/sorting" target="_blank" rel="noopener">排序动画演示</a></em></p>
+<h2 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison ."></a>Comparison .</h2><p>下面我们通过这段C语言代码比较排序速度，直观感受时间复杂度。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 5000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printArr</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(T arr[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSortRand</span><span class="params">(T arr[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(T arr[],T temp[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSortPlus</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">choseSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> start, end;</span><br><span class="line">    <span class="keyword">int</span> a[N], b[N], c[N], d[N], e[N], f[N], g[N];</span><br><span class="line">    srand(time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        g[i] = f[i] = e[i] = d[i] = c[i] = b[i] = a[i] = rand()%<span class="number">100</span> + rand()%<span class="number">1000</span>;</span><br><span class="line">        <span class="comment">//g[i] = f[i] = e[i] = d[i] = c[i] = b[i] = a[i] = N - i;</span></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	start = clock();</span><br><span class="line">    quickSortRand(a,<span class="number">0</span>,N - <span class="number">1</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"随机快速排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(a,N);</span></span><br><span class="line"></span><br><span class="line">	start = clock();</span><br><span class="line">    quickSort(b,<span class="number">0</span>,N - <span class="number">1</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"快速排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(b,N);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>* temp = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * N);</span><br><span class="line">    start = clock();</span><br><span class="line">    mergeSort(c,temp,<span class="number">0</span>,N - <span class="number">1</span>);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"归并排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(c,N);</span></span><br><span class="line">    <span class="built_in">free</span>(temp);</span><br><span class="line">	</span><br><span class="line">    start = clock();</span><br><span class="line">    insertSort(d,N);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"插入排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(d,N);</span></span><br><span class="line">	</span><br><span class="line">    start = clock();</span><br><span class="line">    bubbleSort(e,N);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"冒泡排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(e,N);</span></span><br><span class="line">	</span><br><span class="line">    start = clock();</span><br><span class="line">    bubbleSortPlus(f,N);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"升级版冒泡排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(f,N);</span></span><br><span class="line">	</span><br><span class="line">	start = clock();</span><br><span class="line">    choseSort(g,N);</span><br><span class="line">    end = clock();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"选择排序用时%lfsec\n"</span>,(<span class="keyword">double</span>)(end - start) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="comment">//printArr(g,N);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(T arr[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &lt; last)</span><br><span class="line">	&#123;</span><br><span class="line">		T temp;</span><br><span class="line">		<span class="keyword">int</span> i = start;</span><br><span class="line">		<span class="keyword">int</span> j = last;</span><br><span class="line">		<span class="keyword">while</span>(i != j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">while</span>(arr[j] &gt;= arr[start] &amp;&amp; j != i)</span><br><span class="line">				j--;</span><br><span class="line">			<span class="keyword">while</span>(arr[i] &lt;= arr[start] &amp;&amp; i != j)</span><br><span class="line">				i++;</span><br><span class="line">			<span class="keyword">if</span>(i != j)</span><br><span class="line">			&#123;</span><br><span class="line">				temp = arr[i];</span><br><span class="line">				arr[i] = arr[j];</span><br><span class="line">				arr[j] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		temp = arr[i];</span><br><span class="line">		arr[i] = arr[start];</span><br><span class="line">		arr[start] = temp;</span><br><span class="line">		quickSort(arr, start, i - <span class="number">1</span>);</span><br><span class="line">		quickSort(arr, i + <span class="number">1</span>, last);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSortRand</span><span class="params">(T arr[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(start &lt; last)</span><br><span class="line">	&#123;</span><br><span class="line">		T temp;</span><br><span class="line">		<span class="keyword">int</span> i = start;</span><br><span class="line">		<span class="keyword">int</span> j = last;</span><br><span class="line">		<span class="keyword">int</span> pos = rand() % (last - start) + start;</span><br><span class="line">		temp = arr[start];</span><br><span class="line">		arr[start] = arr[pos];</span><br><span class="line">		arr[pos] = temp;</span><br><span class="line">		<span class="keyword">while</span>(i != j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">while</span>(arr[j] &gt;= arr[start] &amp;&amp; j != i)</span><br><span class="line">				j--;</span><br><span class="line">			<span class="keyword">while</span>(arr[i] &lt;= arr[start] &amp;&amp; i != j)</span><br><span class="line">				i++;</span><br><span class="line">			<span class="keyword">if</span>(i != j)</span><br><span class="line">			&#123;</span><br><span class="line">				temp = arr[i];</span><br><span class="line">				arr[i] = arr[j];</span><br><span class="line">				arr[j] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		temp = arr[i];</span><br><span class="line">		arr[i] = arr[start];</span><br><span class="line">		arr[start] = temp;</span><br><span class="line">		quickSortRand(arr, start, i - <span class="number">1</span>);</span><br><span class="line">		quickSortRand(arr, i + <span class="number">1</span>, last);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(T arr[],T temp[],<span class="keyword">int</span> start,<span class="keyword">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(start &lt; last)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (start + last) / <span class="number">2</span>;</span><br><span class="line">        mergeSort(arr,temp,start,mid);</span><br><span class="line">        mergeSort(arr,temp,mid + <span class="number">1</span>,last);</span><br><span class="line">        <span class="keyword">int</span> i,j,k;</span><br><span class="line">		i = start;</span><br><span class="line">		j = mid + <span class="number">1</span>;</span><br><span class="line">		k = start;</span><br><span class="line">		<span class="keyword">while</span>(i != mid + <span class="number">1</span> &amp;&amp; j != last + <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[i] &lt; arr[j])</span><br><span class="line">				temp[k++] = arr[i++];</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				temp[k++] = arr[j++];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(i != mid + <span class="number">1</span>)</span><br><span class="line">			temp[k++] = arr[i++];</span><br><span class="line">		<span class="keyword">while</span>(j != last + <span class="number">1</span>)</span><br><span class="line">			temp[k++] = arr[j++];</span><br><span class="line">		<span class="keyword">for</span>(i = start;i &lt; last + <span class="number">1</span>;i++)</span><br><span class="line">			arr[i] = temp[i];</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T temp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)</span><br><span class="line">        <span class="keyword">if</span>(arr[i] &lt; arr[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            temp = arr[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i - <span class="number">1</span>;j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; temp;j--)</span><br><span class="line">                arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    T temp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span>;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n - <span class="number">1</span> - i;j++)</span><br><span class="line">            <span class="keyword">if</span>(arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSortPlus</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    T temp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span> &amp;&amp; flag;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n - <span class="number">1</span> - i;j++)</span><br><span class="line">            <span class="keyword">if</span>(arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">choseSort</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	T temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span>;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt; n;j++)</span><br><span class="line">			<span class="keyword">if</span>(arr[i] &gt; arr[j])</span><br><span class="line">			&#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[i];</span><br><span class="line">                arr[i] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printArr</span><span class="params">(T arr[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行条件：</p>
+<p><strong>编译程序VC 6.0</strong></p>
+<p><strong>数组成员 5000</strong></p>
+<p>执行结果：</p>
+<p><strong>随机快速排序用时0.001000sec</strong></p>
+<p><strong>快速排序用时0.001000sec</strong></p>
+<p><strong>归并排序用时0.002000sec</strong></p>
+<p><strong>插入排序用时0.033000sec</strong></p>
+<p><strong>冒泡排序用时0.090000sec</strong></p>
+<p><strong>升级版冒泡排序用时0.089000sec</strong></p>
+<p><strong>选择排序用时0.083000sec</strong></p>
+<p>下面我们通过这段JAVA语言代码比较排序速度，直观感受时间复杂度。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.java</span></span><br><span class="line"><span class="keyword">package</span> pers.cz.sortcompare;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> pers.cz.sortcompare.Sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> n = <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] b = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] c = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] d = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] e = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">int</span>[] g = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">long</span> start, end;</span><br><span class="line">        Random rand = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">            g[i] = f[i] = e[i] = d[i] = c[i] = b[i] = a[i] = rand.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        Sort.QuickSort(a, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"QuickSort cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(a);</span></span><br><span class="line">        </span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        Sort.QuickSortRand(b, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"QuickSortRand cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(b);</span></span><br><span class="line">        </span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        Sort.MargeSort(c, <span class="number">0</span>, n - <span class="number">1</span>, temp);</span><br><span class="line">        temp = <span class="keyword">null</span>;</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"MargeSort cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(c);</span></span><br><span class="line"></span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        Sort.InsertSort(d);</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"InstertSort cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(d);</span></span><br><span class="line"></span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        Sort.BubbleSortPlus(e);</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"BubbleSortPlus cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(e);</span></span><br><span class="line"></span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        Sort.BubbleSort(f);</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"BubbleSort cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(f);</span></span><br><span class="line">        </span><br><span class="line">        start = System.currentTimeMillis();</span><br><span class="line">        Sort.ChoseSort(g);</span><br><span class="line">        end = System.currentTimeMillis();</span><br><span class="line">        System.out.print(<span class="string">"ChoseSort cost time(sec):"</span>);</span><br><span class="line">        System.out.println(end - start);</span><br><span class="line">        <span class="comment">//PrintArrData(g);</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">PrintArrData</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> value : arr) &#123;</span><br><span class="line">            System.out.println(value);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Sort.java</span></span><br><span class="line"><span class="keyword">package</span> pers.cz.sortcompare;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ChoseSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i] &gt; arr[j]) &#123;</span><br><span class="line">                    temp = arr[i];</span><br><span class="line">                    arr[i] = arr[j];</span><br><span class="line">                    arr[j] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    temp = arr[j];</span><br><span class="line">                    arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                    arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BubbleSortPlus</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span> &amp;&amp; flag; i++) &#123;</span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                    flag = <span class="keyword">true</span>;</span><br><span class="line">                    temp = arr[j];</span><br><span class="line">                    arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                    arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j, number;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                number = arr[i];</span><br><span class="line">                <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; number; j--) &#123;</span><br><span class="line">                    arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">                &#125;</span><br><span class="line">                arr[j + <span class="number">1</span>] = number;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">MargeSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> last, <span class="keyword">int</span>[] temp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start &lt; last) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (start + last) / <span class="number">2</span>;</span><br><span class="line">            Sort.MargeSort(arr, start, mid, temp);</span><br><span class="line">            Sort.MargeSort(arr, mid + <span class="number">1</span>, last, temp);</span><br><span class="line">            <span class="keyword">int</span> i, j, k;</span><br><span class="line">            i = start;</span><br><span class="line">            j = mid + <span class="number">1</span>;</span><br><span class="line">            k = start;</span><br><span class="line">            <span class="keyword">while</span> (i != mid + <span class="number">1</span> &amp;&amp; j != last + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i] &lt; arr[j]) &#123;</span><br><span class="line">                    temp[k++] = arr[i++];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    temp[k++] = arr[j++];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (i != mid + <span class="number">1</span>) &#123;</span><br><span class="line">                temp[k++] = arr[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (j != last + <span class="number">1</span>) &#123;</span><br><span class="line">                temp[k++] = arr[j++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (i = start; i &lt; last + <span class="number">1</span>; i++) &#123;</span><br><span class="line">                arr[i] = temp[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> last)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start &lt; last) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp;</span><br><span class="line">            <span class="keyword">int</span> i = start;</span><br><span class="line">            <span class="keyword">int</span> j = last;</span><br><span class="line">            <span class="keyword">while</span> (i != j) &#123;</span><br><span class="line">                <span class="keyword">while</span> (arr[j] &gt;= arr[start] &amp;&amp; j != i) &#123;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (arr[i] &lt;= arr[start] &amp;&amp; i != j) &#123;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (i != j) &#123;</span><br><span class="line">                    temp = arr[i];</span><br><span class="line">                    arr[i] = arr[j];</span><br><span class="line">                    arr[j] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = arr[start];</span><br><span class="line">            arr[start] = arr[i];</span><br><span class="line">            arr[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">QuickSortRand</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> start, <span class="keyword">int</span> last)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start &lt; last) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp;</span><br><span class="line">            <span class="keyword">int</span> i = start;</span><br><span class="line">            <span class="keyword">int</span> j = last;</span><br><span class="line">            Random rand = <span class="keyword">new</span> Random();</span><br><span class="line">            <span class="keyword">int</span> pos = rand.nextInt(last - start) + start;</span><br><span class="line">            temp = arr[start];</span><br><span class="line">            arr[start] = arr[pos];</span><br><span class="line">            arr[pos] = temp;</span><br><span class="line">            <span class="keyword">while</span> (i != j) &#123;</span><br><span class="line">                <span class="keyword">while</span> (arr[j] &gt;= arr[start] &amp;&amp; j != i) &#123;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> (arr[i] &lt;= arr[start] &amp;&amp; i != j) &#123;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (i != j) &#123;</span><br><span class="line">                    temp = arr[i];</span><br><span class="line">                    arr[i] = arr[j];</span><br><span class="line">                    arr[j] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = arr[start];</span><br><span class="line">            arr[start] = arr[i];</span><br><span class="line">            arr[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行条件：</p>
+<p><strong>编译程序NetBeans IDE 8.1</strong></p>
+<p><strong>数组成员 1000</strong></p>
+<p>执行结果：</p>
+<p><strong>QuickSort cost time(sec):1</strong></p>
+<p><strong>QuickSortRand cost time(sec):0</strong></p>
+<p><strong>MargeSort cost time(sec):1</strong></p>
+<p><strong>InstertSort cost time(sec):5</strong></p>
+<p><strong>BubbleSortPlus cost time(sec):14</strong></p>
+<p><strong>BubbleSort cost time(sec):18</strong></p>
+<p><strong>ChoseSort cost time(sec):9</strong></p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <img id='author-avatar' width='20px' alt='CC许可协议' title='CC许可协议' src='https://creativecommons.org/images/deed/cc-logo.jpg' /><img id='author-avatar' width='20px' alt='署名' title='署名' src='https://creativecommons.org/images/deed/by.png' /><img id='author-avatar' width='20px' alt='非商业性使用' title='非商业性使用' src='https://creativecommons.org/images/deed/nc.png' /><img id='author-avatar' width='20px' alt='相同方式共享' title='相同方式共享' src='https://creativecommons.org/images/deed/sa.png' /><br/>本文采用 <a rel='nofollow noopener noreferrer' href='https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh' target='_blank'>CC BY-NC-SA 3.0 Unported</a> 协议进行许可
+                        </strong>
+                        <!--
+                        <br>
+                        <strong>本文链接：</strong><a href="https://gh-orange.github.io/2018/03/22/排序算法总结(上)/">https://gh-orange.github.io/2018/03/22/排序算法总结(上)/</a>
+                        -->
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTgzNi8xMjM3Mg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/03/24/计算机图形学-直线/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/22/Test/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://u.cubeupload.com/orange/sidebarheader.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://u.cubeupload.com/orange/avatar.png" alt="Orange's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        cz335360@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:cz335360@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">11</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/剑指Offer/">剑指Offer<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据库/">数据库<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂项/">杂项<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/框架/">框架<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags/" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/links/" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">link</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about/" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+    
+    <!-- Visiters Number  -->
+    
+        
+            <li>
+                <a href="javascript:void(0)">
+                    
+                        <i class="material-icons sidebar-material-icons">insert_chart</i>
+                    
+                    浏览量
+                    <span id="busuanzi_container_site_uv">
+                        <span id="busuanzi_value_site_uv" class="sidebar-badge"></span>
+                    </span>
+                </a>
+            </li>
+            
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/cz111000" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Orange's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">由 <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a> 强力驱动</div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#FA0'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FA0, 0 0 15px #FA0'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FA0',
+        'border-left-color': '#FA0'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- Sidecar Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'cz111000-github-io/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

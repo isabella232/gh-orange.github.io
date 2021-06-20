@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com">
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            SSH框架-初识Struts2 | 
+        
+        Orange&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://u.cubeupload.com/orange/logo.png">
+    <link rel="icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="Orange&#39;s Blog">
+    <meta name="keywords" content="Orange,Blog,SSH,框架,Struts">
+    <meta name="theme-color" content="#FFA500">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?9LPOkz2mGpTIbimW1m6jOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?oWP/xO7B/HR5HyTeFEJzSw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night-eighties.min.css?as25J1I+1SbOMXftxplbHQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #FFB313;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #FFA500 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #FFA500 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #FFA500 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #FFB313;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://u.cubeupload.com/orange/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Orange&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/">
+    <meta name="msapplication-navbutton-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Orange&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="SSH框架-初识Struts2 | Orange&#39;s Blog">
+    <meta property="og:image" content="https://u.cubeupload.com/orange/logo.png">
+    <meta property="og:description" content="Orange&#39;s Blog">
+    <meta property="og:article:tag" content="SSH"> <meta property="og:article:tag" content="框架"> <meta property="og:article:tag" content="Struts"> 
+
+    
+        <meta property="article:published_time" content="Thu Apr 05 2018 12:15:21 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 20 2021 14:23:33 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/index.html",
+    "headline": "SSH框架-初识Struts2",
+    "datePublished": "Thu Apr 05 2018 12:15:21 GMT+0800",
+    "dateModified": "Sun Jun 20 2021 14:23:33 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Orange",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://u.cubeupload.com/orange/avatar.png"
+        },
+        "description": "Bring Fresh Things to Your"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Orange&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://u.cubeupload.com/orange/logo.png"
+        }
+    },
+    "keywords": ",SSH,框架,StrutsOrange,Blog",
+    "description": "Orange&#39;s Blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:auto;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MVC模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">MVC模式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Struts简史"><span class="post-toc-number">3.</span> <span class="post-toc-text">Struts简史</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#过滤器-filter"><span class="post-toc-number">4.</span> <span class="post-toc-text">过滤器(filter)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Struts2原理"><span class="post-toc-number">5.</span> <span class="post-toc-text">Struts2原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Struts2使用"><span class="post-toc-number">6.</span> <span class="post-toc-text">Struts2使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境配置"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">环境配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#struts-xml"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">struts.xml</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#constant"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">constant</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#package"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">package</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action"><span class="post-toc-number">6.2.3.</span> <span class="post-toc-text">action</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#result"><span class="post-toc-number">6.2.4.</span> <span class="post-toc-text">result</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#default-action-ref"><span class="post-toc-number">6.2.5.</span> <span class="post-toc-text">default-action-ref</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#interceptor"><span class="post-toc-number">6.2.6.</span> <span class="post-toc-text">interceptor</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#default-interceptor-ref"><span class="post-toc-number">6.2.7.</span> <span class="post-toc-text">default-interceptor-ref</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#global-results"><span class="post-toc-number">6.2.8.</span> <span class="post-toc-text">global-results</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建action"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">创建action</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action响应页面展示"><span class="post-toc-number">6.3.1.</span> <span class="post-toc-text">action响应页面展示</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action读取表单参数"><span class="post-toc-number">6.3.2.</span> <span class="post-toc-text">action读取表单参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action内容验证"><span class="post-toc-number">6.3.3.</span> <span class="post-toc-text">action内容验证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#action访问Servlet-API"><span class="post-toc-number">6.3.4.</span> <span class="post-toc-text">action访问Servlet API</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建interceptor"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">创建interceptor</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">7.</span> <span class="post-toc-text">注意事项</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">8.</span> <span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://img.vim-cn.com/39/3bb06e0b40e3560228f177c95e85ecebd9ab56.jpg)">
+    
+            <p class="article-headline-p">
+                SSH框架-初识Struts2
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://u.cubeupload.com/orange/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Orange</strong>
+        <span>4月 05, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/SSH/">SSH</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Struts/">Struts</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/框架/">框架</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=SSH框架-初识Struts2&url=https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/index.html&pic=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=SSH框架-初识Struts2&url=https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/index.html&via=Orange" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Orange&#39;s Blog&title=SSH框架-初识Struts2&summary=Orange&#39;s Blog&pics=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&url=https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>最初的Java Web开发由 <code>JavaBean + JSP</code> 模式实现，大量逻辑视图代码混杂于JSP中，造成代码可维护性极差。<br>而后Sun公司推出典型MVC模式，将逻辑与视图代码分离出来。</p>
+<h1 id="MVC模式"><a href="#MVC模式" class="headerlink" title="MVC模式"></a>MVC模式</h1><p>MVC是一种软件设计典范，将软件设计分为三大部分：(Model)模型 + (View)视图 + (Controller)控制器。以此组织代码，方便维护和修改。<br>Sun公司推出的MVC实现方式为 <code>JavaBean + JSP + Servlet</code>，迅速推进Java Web开发变革。而后各大MVC模式实现方式层出不穷，为达成统一，MVC框架由此而生。Struts便是其中流行的一种。</p>
+<h1 id="Struts简史"><a href="#Struts简史" class="headerlink" title="Struts简史"></a>Struts简史</h1><p>Struts项目隶属Apache基金会，出身名门。Struts前身为Struts1，于2001年推出，随即风靡全球。Struts1运行流程图：<br><img src="https://img.vim-cn.com/f2/2da693e2d7e66ad49525dd3ec6a978516f0d4d.png" alt="Struts1运行流程"></p>
+<p>WebWork也是同时代产物，由于技术发展飞快，Struts项目开发组织舍弃陈旧的Struts1模式转而于2007年设计出基于WebWork的全新Struts2框架。Struts1基于Servlet API的控制器设计导致与JSP/Servlet耦合非常紧密，造成很多缺陷，而WebWork采用过滤器(filter)实现，取消对Servlet API的依赖使测试更加方便。Struts2便是WebWork的升级版。在了解Struts2之前本文将先阐述过滤器(filter)。</p>
+<h1 id="过滤器-filter"><a href="#过滤器-filter" class="headerlink" title="过滤器(filter)"></a>过滤器(filter)</h1><p>Filter技术是Servlet技术中最激动人心的技术之一，开发人员通过Filter技术，对web服务器的web资源进行拦截，从而实现一些如权限控制、过滤词汇、压缩信息等特殊功能。在一个web应用中，可编写多个Filter，这些Filter组合起来称之为一个Filter链。当调用FilterChain对象的doFilter方法时，web服务器会检查FilterChain对象中是否还有filter，若有则调用第下个filter，否则调用实现servlet接口对象的service方法。Filter工作原理如下所示：<br><img src="https://img.vim-cn.com/f5/075c2251151bcf39f5458e05903a0580737b58.png" alt="Filter工作原理"></p>
+<h1 id="Struts2原理"><a href="#Struts2原理" class="headerlink" title="Struts2原理"></a>Struts2原理</h1><p><strong>Struts2基于过滤器(filter)实现</strong>，其工作原理如下：<br><img src="https://img.vim-cn.com/b1/d3fd5f785317235e1e1adc389b82e246c9244b.png" alt="Struts2框架原理"><br>图中名词解释：</p>
+<ul>
+<li><strong>ActionContextCleanUp</strong>：Action属性清除过滤器，用于清除Action属性，而不用Action自行清除，以此延长Action属性（包括自定义属性）生命周期，以便在JSP页面中进行访问</li>
+<li><strong>Other Filters(SiteMesh, etc)</strong>：其他可附加的过滤器，诸如用于响应页面修饰的SiteMesh过滤器等</li>
+<li><strong>StrutsPrepareAndExecuteFilter</strong>：此过滤器为Struts2核心，用于调用Action映射(ActionMapper)类、设置编码格式、调用Action代理(ActionProxy)类加载配置信息；<strong>同时可拆分为StrutsPrepareFilter和StrutsExecuteFilter执行Action前（位置①）或后（位置②）的用户自定义过滤器</strong></li>
+<li><strong>ActionMapper</strong>：Action映射类，用于匹配URL对应的Action或HTML或JSP</li>
+<li><strong>ActionProxy</strong>：Action代理类，用于调用ConfigurationManager读取struts配置文件</li>
+<li><strong>ConfigurationManager</strong>：配置管理类，用于读取struts相关配置文件(struts.xml、struts.properties)</li>
+<li><strong>ActionInvocation</strong>：Action调用类，用于解析OGNL表达式和依照struts配置(struts.xml)顺序调用拦截器(Interceptor)和Action实例（Struts2使用类似Filter链的拦截器栈(Interceptor Stack)顺序调用拦截器）</li>
+<li><strong>Interceptor (1)(2)(3)</strong>：拦截器接口，用于对Action进行过滤请求，功能类似Filter。不同于回调函数实现的Filter，拦截器基于Java反射机制实现。<strong>拦截器使用栈结构存储，注意图中调用顺序</strong></li>
+<li><strong>Action</strong>：Action实例，用于进行模型(Model)与页面(View)链接的逻辑操作，也可包含模型对象，故不能简单视其为控制器(Controller)</li>
+<li><strong>Result</strong>：Action执行方法的返回结果，实际为字符串，如：success、input、error等</li>
+<li><strong>Template</strong>：显示模板，用于响应页面显示，如JSP、FreeMarker、HTML等</li>
+</ul>
+<h1 id="Struts2使用"><a href="#Struts2使用" class="headerlink" title="Struts2使用"></a>Struts2使用</h1><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
+<li>创建Java Web项目并导入与Struts2相关的Jar开发包。<a href="https://struts.apache.org/download.cgi" target="_blank" rel="noopener">开发包下载地址</a></li>
+<li><p>配置web.xml，加入Struts2核心过滤器(filter)，配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在src文件夹内创建struts.xml文件，该文件用于配置全局属性、Interceptor以及action</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"</span></span><br><span class="line"><span class="meta">        "http://struts.apache.org/dtds/struts-2.5.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="struts-xml"><a href="#struts-xml" class="headerlink" title="struts.xml"></a>struts.xml</h2><h3 id="constant"><a href="#constant" class="headerlink" title="constant"></a>constant</h3><p>constant标签用于配置全局属性，如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--该属性指定需要Struts2处理的请求后缀，该属性的默认值是action,即所有匹配*.action或无后缀的请求都由Struts2处理。多个请求后缀之间以英文逗号(,)隔开--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.action.extension"</span> <span class="attr">value</span>=<span class="string">"action,"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>可也置于struts.properties文件中，以键值对形式保存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">struts.action.extension=action,</span><br></pre></td></tr></table></figure></p>
+<p>更多属性请查阅Struts2官网</p>
+<h3 id="package"><a href="#package" class="headerlink" title="package"></a>package</h3><p>package标签表示独立模块，每个package都有独立的interceptor、action定义<br>其属性abstract用于创建抽象package，namespace用于路径匹配（相当于文件夹路径），extends用于继承配置，例如<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--namespace对应http://host:port/project/path1/*.action中的path1，默认为"/"--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--exends表示该包继承于框架提供的名为struts-default默认配置包--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"example-package"</span> <span class="attr">namespace</span>=<span class="string">"/path1"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--actions...--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>关于URL中 <code>namespace</code> 路径的访问并非严格匹配，而是层级向上查找。</strong>例如：<br>当仅有单个package且其 <code>namespace=path1</code> 时，对于路径：</p>
+<ul>
+<li><a href="http://host:port/project/path1/example.action" target="_blank" rel="noopener">http://host:port/project/path1/example.action</a></li>
+<li><a href="http://host:port/project/path1/path2/example.action" target="_blank" rel="noopener">http://host:port/project/path1/path2/example.action</a></li>
+<li><a href="http://host:port/project/path1/path2/path3/example.action" target="_blank" rel="noopener">http://host:port/project/path1/path2/path3/example.action</a></li>
+</ul>
+<p>均可访问到example.action对应页面。</p>
+<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>action标签用于定义URL名字对应的action类，例如<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--此标签表示http://host:port/project/index.action网址对应HelloWorldAction类--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>name属性支持正则匹配，因此可对其作些文章：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--此设置表示形如http://host:port/project/Example.action网址对应ExampleAction类--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"*"</span> <span class="attr">class</span>=<span class="string">"com.example.project.&#123;1&#125;Action"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--子标签也支持读取&#123;1&#125;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>设定method属性值，可指定调用对应名称的方法，如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--将调用HelloWorldAction类中自定义的hello()方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">method</span>=<span class="string">"hello"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="result"><a href="#result" class="headerlink" title="result"></a>result</h3><p>result标签用于指定action方法返回值对应跳转页面（跳转默认采用forward方式，即type=”dispatcher”），例如<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--当HelloWorldAction类某方法返回success则响应hello.jsp页面--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--属性name默认值为success--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>因为struts.xml支持OGNL表达式，故可取request、session、application等属性值：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--读取request范围中名为attrExample的属性值作为JSP文件名--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/&#123;#request.attrExample&#125;.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>以下为Struts2已默认包含的name属性值：</p>
+<ul>
+<li>SUCCESS：Action正确的执行完成，返回相应的视图，success是name属性的默认值。</li>
+<li>NONE：表示Action正确的执行完成，但并不返回任何视图。</li>
+<li>ERROR：表示Action执行失败，返回到错误处理视图。</li>
+<li>INPUT：Action的执行，需要从前端界面获取参数，INPUT就是代表这个参数输入的界面，一般在应用中，会对这些参数进行验证，如果验证没有通过，将自动返回到该视图。</li>
+<li>LOGIN：Action因为用户没有登陆的原因没有正确执行，将返回该登陆视图，要求用户进行登陆验证。</li>
+</ul>
+<p>以下为type属性值可选内容：</p>
+<ul>
+<li>dispatcher：默认结果类型，用来呈现JSP页面</li>
+<li>chain：将action和另外一个action链接起来</li>
+<li>freemarker：呈现Freemarker模板</li>
+<li>httpheader：返回一个已配置好的HTTP头信息响应</li>
+<li>redirect：将用户重定向到一个已配置好的URL</li>
+<li>redirectAction：将用户重定向到一个已定义好的action</li>
+<li>stream：将原始数据作为流传递回浏览器端，该结果类型对下载的内容和图片非常有用</li>
+<li>velocity：呈现Velocity模板</li>
+<li>xslt：呈现XML到浏览器，该XML可以通过XSL模板进行转换</li>
+<li>plaintext：返回普通文本类容</li>
+</ul>
+<h3 id="default-action-ref"><a href="#default-action-ref" class="headerlink" title="default-action-ref"></a>default-action-ref</h3><p>default-action-ref标签用于指定默认action处理，常用于404页面友好设计，例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">default-action-ref</span> <span class="attr">name</span>=<span class="string">"default"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"default"</span> <span class="attr">class</span>=<span class="string">"com.example.project.DefaultAction"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/404.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="interceptor"><a href="#interceptor" class="headerlink" title="interceptor"></a>interceptor</h3><p>interceptor标签用于拦截action请求响应，例如<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">interceptors</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--此标签表示创建名为myInterceptor的拦截器对应MyInterceptor类--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interceptor</span> <span class="attr">name</span>=<span class="string">"myInterceptor"</span> <span class="attr">class</span>=<span class="string">"com.example.project.MyInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--interceptor-stack标签表示自定义拦截器栈，由于使用自定义interceptor将覆盖默认拦截器栈(defaultStack)，故需重新显式引入（注意栈顺序）--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interceptor-stack</span> <span class="attr">name</span>=<span class="string">"myInterceptorStack"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"myInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"defaultStack"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interceptor-stack</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interceptors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置此action使用的拦截器（栈）--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"myInterceptorStack"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="default-interceptor-ref"><a href="#default-interceptor-ref" class="headerlink" title="default-interceptor-ref"></a>default-interceptor-ref</h3><p>default-interceptor-ref标签用于指定默认拦截器（栈）</p>
+<h3 id="global-results"><a href="#global-results" class="headerlink" title="global-results"></a>global-results</h3><p>global-results标签用于全局结果集设置，例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置一个全局结果集--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">global-results</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"default-result"</span>&gt;</span>/login.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">global-results</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="创建action"><a href="#创建action" class="headerlink" title="创建action"></a>创建action</h2><h3 id="action响应页面展示"><a href="#action响应页面展示" class="headerlink" title="action响应页面展示"></a>action响应页面展示</h3><p>本文将创建 <code>HelloWorldAciton</code> 类继承于 <code>ActionSupport</code>，实现其 <code>execute()</code> 方法（类似 <code>Servlet</code> 接口中 <code>service()</code> 方法）</p>
+<ol>
+<li><p>创建 <code>HelloWorldAciton</code> 类，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"HelloWorldAction execute."</span>);</span><br><span class="line">        <span class="keyword">return</span> ActionSupport.SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时，在 <code>struts.xml</code> 文件中写入如下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"</span></span><br><span class="line"><span class="meta">        "http://struts.apache.org/dtds/struts-2.5.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"example-package"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>随后在web文件夹中创建名为 <code>hello.jsp</code> 的JSP页面。</p>
+</li>
+</ol>
+<p>至此，您已成功创建action并投入运行。<strong>并且action中并无显示内容相关代码，仅通过返回字符串决定响应页面，这便是MVC优势所在。</strong></p>
+<h3 id="action读取表单参数"><a href="#action读取表单参数" class="headerlink" title="action读取表单参数"></a>action读取表单参数</h3><p>接下来，继续实现表单提交功能：</p>
+<ol>
+<li><p>实现Model，此处使用User类作为JavaBean，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>action</code> 中实现 <code>ModelDriven</code> 接口绑定Model，此处Model为 <code>User</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> <span class="keyword">implements</span> <span class="title">ModelDriven</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//此处一定要先实例化，否则Struts2框架调用getModel方法的返回值为null</span></span><br><span class="line">    <span class="keyword">private</span> User user = <span class="keyword">new</span> User();</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ActionSupport.SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">getModel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>login.jsp</code> 页面中实现表单提交功能</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.action"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">        用户名：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">        密码：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>现在，访问 <code>login.jsp</code> 即可实现表单提交功能。</p>
+<h3 id="action内容验证"><a href="#action内容验证" class="headerlink" title="action内容验证"></a>action内容验证</h3><p>最后实现表单内容验证功能：</p>
+<ol>
+<li><p>实现 <code>ActionSupport</code> 基类的 <code>validate()</code> 方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">validate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == user.getName() || user.getName().equals(<span class="string">""</span>))</span><br><span class="line">        <span class="comment">// 当addFieldError之后action调用返回值自动变更为 `input`</span></span><br><span class="line">        <span class="keyword">this</span>.addFieldError(<span class="string">"username"</span>, <span class="string">"用户名不能为空"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 <code>strtuts.xml</code> 文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"</span></span><br><span class="line"><span class="meta">        "http://struts.apache.org/dtds/struts-2.5.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"example-package"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"input"</span>&gt;</span>/login.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>login.jsp</code> 页面代码，实现错误信息读取</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.action"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">s:fielderror</span> <span class="attr">fieldName</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">        用户名：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">        密码：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="action访问Servlet-API"><a href="#action访问Servlet-API" class="headerlink" title="action访问Servlet API"></a>action访问Servlet API</h3><p>访问Servlet API，只需实现 <code>ServletContextAware</code> 、 <code>ServletRequestAware</code> 、 <code>ServletResponseAware</code> 接口即可。<br>以下代码实现 <code>ServletRequestAware</code> 接口的 <code>setServletRequest</code> 方法设置request属性：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAction</span> <span class="keyword">extends</span> <span class="title">ActionSupport</span> <span class="keyword">implements</span> <span class="title">ServletRequestAware</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HttpServletRequest request;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        request.setAttribute(<span class="string">"path"</span>, <span class="string">"HelloWorld"</span>);</span><br><span class="line">        <span class="keyword">return</span> Action.SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setServletRequest</span><span class="params">(HttpServletRequest httpServletRequest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.request = httpServletRequest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结合 <code>struts.xml</code> 文件中 <code>result</code> 标签的OGNL表达式内容，即可实现动态跳转。</p>
+<h2 id="创建interceptor"><a href="#创建interceptor" class="headerlink" title="创建interceptor"></a>创建interceptor</h2><p>本文将创建 <code>MyInterceptor</code> 类继承于 <code>Interceptor</code>，实现其 <code>intercept()</code> 方法（类似 <code>Filter</code> 接口中 <code>doFilter()</code> 方法）</p>
+<ol>
+<li><p>创建 <code>MyInterceptor</code> 类，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptor</span> <span class="keyword">extends</span> <span class="title">Interceptor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">intercept</span><span class="params">(ActionInvocation actionInvocation)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进入拦截器"</span>);</span><br><span class="line">        String returnName = actionInvocation.invoke();</span><br><span class="line">        System.out.println(<span class="string">"走出拦截器"</span>);</span><br><span class="line">        <span class="keyword">return</span> returnName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时，在 <code>struts.xml</code> 文件中写入如下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"</span></span><br><span class="line"><span class="meta">        "http://struts.apache.org/dtds/struts-2.5.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"example-package"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interceptors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">interceptor</span> <span class="attr">name</span>=<span class="string">"myInterceptor"</span> <span class="attr">class</span>=<span class="string">"com.example.project.MyInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">interceptor-stack</span> <span class="attr">name</span>=<span class="string">"myInterceptorStack"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"myInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"defaultStack"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">interceptor-stack</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interceptors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"index"</span> <span class="attr">class</span>=<span class="string">"com.example.project.HelloWorldAction"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/hello.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"myInterceptorStack"</span>&gt;</span><span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>另有针对性极强的方法拦截器，实现该拦截器需继承 <code>MethodFilterInterceptor</code> 接口的 <code>doIntercept()</code> 方法，不再累述。</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>Q: 配置 <code>web.xml</code> 中的 <code>welcome-file</code> 为action对应URL时并未生效？<br>A: <code>web.xml</code> 配置文件由servlet容器(tomcat)读取，<code>tomcat</code> 启动 <code>main</code> 函数生成 <code>Bootstrap</code> 实例，随即执行 <code>init()</code> 初始化，并调用 <code>start()</code> 方法。<br><code>init()</code> 方法里初始化classloader，由此创建 <code>Catalina</code> 实例。<code>Bootstrap</code> 的 <code>start()</code> 方法调用 <code>Catalina</code> 实例相应 <code>load(args)</code> 方法创建 <code>Server</code> 对象。<br><code>Service</code> 对象调用 <code>init</code> 和 <code>start</code> 方法启动 <code>Container</code> (即 <code>Engine</code> 、 <code>Host</code> 、 <code>Context</code> 、 <code>Wrapper</code> 接口的各个实现类)。<br>其中 <code>Context</code> 接口的实现类 <code>StandardContext</code> 在 <code>bindThread()</code> 后触发CONFIGURE_START_EVENT事件， <code>ContextConfig</code> 接收事件后调用 <code>configureStart()</code> 方法。<br>之后调用 <code>webConfig()</code> 方法，进入 <code>WebXmlParser</code> 实例的 <code>parseWebXml()</code> 方法，通过 <code>Digester</code> 和 <code>WebRuleSet</code> 实例解析 <code>web.xml</code> ，再进入 <code>configureContext(webXml)</code> 方法将 <code>welcome-file</code> 标签内容通过 <code>StandardContext</code> 实例的 <code>addWelcomeFile(string)</code> 方法添加其中。<br>在URL请求时按照流程 <code>EndPoint -&gt; Processor -&gt; CoyoteAdapter -&gt; Mapper</code> 进行处理，Mapper根据以下匹配次序进行URL和wrapper容器（容器中包含Servlet，即Servlet）的匹配，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">internalMapWrapper</span><span class="params">(ContextVersion contextVersion, CharChunk path, MappingData mappingData)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pathOffset = path.getOffset();</span><br><span class="line">    <span class="keyword">int</span> pathEnd = path.getEnd();</span><br><span class="line">    <span class="keyword">boolean</span> noServletPath = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">int</span> length = contextVersion.path.length();</span><br><span class="line">    <span class="keyword">if</span> (length == (pathEnd - pathOffset)) &#123;</span><br><span class="line">        noServletPath = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> servletPath = pathOffset + length;</span><br><span class="line">    path.setOffset(servletPath);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rule 1 -- Exact Match</span></span><br><span class="line">    MappedWrapper[] exactWrappers = contextVersion.exactWrappers;</span><br><span class="line">    internalMapExactWrapper(exactWrappers, path, mappingData);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rule 2 -- Prefix Match</span></span><br><span class="line">    <span class="keyword">boolean</span> checkJspWelcomeFiles = <span class="keyword">false</span>;</span><br><span class="line">    MappedWrapper[] wildcardWrappers = contextVersion.wildcardWrappers;</span><br><span class="line">    <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span>) &#123;</span><br><span class="line">        internalMapWildcardWrapper(wildcardWrappers, contextVersion.nesting, path, mappingData);</span><br><span class="line">        <span class="keyword">if</span> (mappingData.wrapper != <span class="keyword">null</span> &amp;&amp; mappingData.jspWildCard) &#123;</span><br><span class="line">            <span class="keyword">char</span>[] buf = path.getBuffer();</span><br><span class="line">            <span class="keyword">if</span> (buf[pathEnd - <span class="number">1</span>] == <span class="string">'/'</span>) &#123;</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                * Path ending in '/' was mapped to JSP servlet based on</span></span><br><span class="line"><span class="comment">                * wildcard match (e.g., as specified in url-pattern of a</span></span><br><span class="line"><span class="comment">                * jsp-property-group.</span></span><br><span class="line"><span class="comment">                * Force the context's welcome files, which are interpreted</span></span><br><span class="line"><span class="comment">                * as JSP files (since they match the url-pattern), to be</span></span><br><span class="line"><span class="comment">                * considered. See Bugzilla 27664.</span></span><br><span class="line"><span class="comment">                */</span></span><br><span class="line">                mappingData.wrapper = <span class="keyword">null</span>;</span><br><span class="line">                checkJspWelcomeFiles = <span class="keyword">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// See Bugzilla 27704</span></span><br><span class="line">                mappingData.wrapperPath.setChars(buf, path.getStart(), path.getLength());</span><br><span class="line">                mappingData.pathInfo.recycle();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(mappingData.wrapper == <span class="keyword">null</span> &amp;&amp; noServletPath &amp;&amp; contextVersion.object.getMapperContextRootRedirectEnabled()) &#123;</span><br><span class="line">        <span class="comment">// The path is empty, redirect to "/"</span></span><br><span class="line">        path.append(<span class="string">'/'</span>);</span><br><span class="line">        pathEnd = path.getEnd();</span><br><span class="line">        mappingData.redirectPath.setChars(path.getBuffer(), pathOffset, pathEnd - pathOffset);</span><br><span class="line">        path.setEnd(pathEnd - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rule 3 -- Extension Match</span></span><br><span class="line">    MappedWrapper[] extensionWrappers = contextVersion.extensionWrappers;</span><br><span class="line">    <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span> &amp;&amp; !checkJspWelcomeFiles) &#123;</span><br><span class="line">        internalMapExtensionWrapper(extensionWrappers, path, mappingData, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rule 4 -- Welcome resources processing for servlets</span></span><br><span class="line">    <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> checkWelcomeFiles = checkJspWelcomeFiles;</span><br><span class="line">        <span class="keyword">if</span> (!checkWelcomeFiles) &#123;</span><br><span class="line">            <span class="keyword">char</span>[] buf = path.getBuffer();</span><br><span class="line">            checkWelcomeFiles = (buf[pathEnd - <span class="number">1</span>] == <span class="string">'/'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (checkWelcomeFiles) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; (i &lt; contextVersion.welcomeResources.length) &amp;&amp; (mappingData.wrapper == <span class="keyword">null</span>); i++) &#123;</span><br><span class="line">                path.setOffset(pathOffset);</span><br><span class="line">                path.setEnd(pathEnd);</span><br><span class="line">                path.append(contextVersion.welcomeResources[i], <span class="number">0</span>, contextVersion.welcomeResources[i].length());</span><br><span class="line">                path.setOffset(servletPath);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Rule 4a -- Welcome resources processing for exact macth</span></span><br><span class="line">                internalMapExactWrapper(exactWrappers, path, mappingData);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Rule 4b -- Welcome resources processing for prefix match</span></span><br><span class="line">                <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    internalMapWildcardWrapper(wildcardWrappers, contextVersion.nesting, path, mappingData);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Rule 4c -- Welcome resources processing for physical folder</span></span><br><span class="line">                <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span> &amp;&amp; contextVersion.resources != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    String pathStr = path.toString();</span><br><span class="line">                    WebResource file = contextVersion.resources.getResource(pathStr);</span><br><span class="line">                    <span class="keyword">if</span> (file != <span class="keyword">null</span> &amp;&amp; file.isFile()) &#123;</span><br><span class="line">                        internalMapExtensionWrapper(extensionWrappers, path, mappingData, <span class="keyword">true</span>);</span><br><span class="line">                        <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span> &amp;&amp; contextVersion.defaultWrapper != <span class="keyword">null</span>) &#123;</span><br><span class="line">                            mappingData.wrapper = contextVersion.defaultWrapper.object;</span><br><span class="line">                            mappingData.requestPath.setChars(path.getBuffer(), path.getStart(), path.getLength());</span><br><span class="line">                            mappingData.wrapperPath.setChars(path.getBuffer(), path.getStart(), path.getLength());</span><br><span class="line">                            mappingData.requestPath.setString(pathStr);</span><br><span class="line">                            mappingData.wrapperPath.setString(pathStr);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            path.setOffset(servletPath);</span><br><span class="line">            path.setEnd(pathEnd);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* welcome file processing - take 2</span></span><br><span class="line"><span class="comment">    * Now that we have looked for welcome files with a physical</span></span><br><span class="line"><span class="comment">    * backing, now look for an extension mapping listed</span></span><br><span class="line"><span class="comment">    * but may not have a physical backing to it. This is for</span></span><br><span class="line"><span class="comment">    * the case of index.jsf, index.do, etc.</span></span><br><span class="line"><span class="comment">    * A watered down version of rule 4</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> checkWelcomeFiles = checkJspWelcomeFiles;</span><br><span class="line">        <span class="keyword">if</span> (!checkWelcomeFiles) &#123;</span><br><span class="line">            <span class="keyword">char</span>[] buf = path.getBuffer();</span><br><span class="line">            checkWelcomeFiles = (buf[pathEnd - <span class="number">1</span>] == <span class="string">'/'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (checkWelcomeFiles) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; (i &lt; contextVersion.welcomeResources.length) &amp;&amp; (mappingData.wrapper == <span class="keyword">null</span>); i++) &#123;</span><br><span class="line">                path.setOffset(pathOffset);</span><br><span class="line">                path.setEnd(pathEnd);</span><br><span class="line">                path.append(contextVersion.welcomeResources[i], <span class="number">0</span>, contextVersion.welcomeResources[i].length());</span><br><span class="line">                path.setOffset(servletPath);</span><br><span class="line">                internalMapExtensionWrapper(extensionWrappers, path, mappingData, <span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            path.setOffset(servletPath);</span><br><span class="line">            path.setEnd(pathEnd);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rule 7 -- Default servlet</span></span><br><span class="line">    <span class="keyword">if</span> (mappingData.wrapper == <span class="keyword">null</span> &amp;&amp; !checkJspWelcomeFiles) &#123;</span><br><span class="line">        <span class="keyword">if</span> (contextVersion.defaultWrapper != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mappingData.wrapper = contextVersion.defaultWrapper.object;</span><br><span class="line">            mappingData.requestPath.setChars(path.getBuffer(), path.getStart(), path.getLength());</span><br><span class="line">            mappingData.wrapperPath.setChars(path.getBuffer(), path.getStart(), path.getLength());</span><br><span class="line">            mappingData.matchType = MappingMatch.DEFAULT;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Redirection to a folder</span></span><br><span class="line">        <span class="keyword">char</span>[] buf = path.getBuffer();</span><br><span class="line">        <span class="keyword">if</span> (contextVersion.resources != <span class="keyword">null</span> &amp;&amp; buf[pathEnd -<span class="number">1</span> ] != <span class="string">'/'</span>) &#123;</span><br><span class="line">            String pathStr = path.toString();</span><br><span class="line">            WebResource file;</span><br><span class="line">            <span class="comment">// Handle context root</span></span><br><span class="line">            <span class="keyword">if</span> (pathStr.length() == <span class="number">0</span>) &#123;</span><br><span class="line">                file = contextVersion.resources.getResource(<span class="string">"/"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                file = contextVersion.resources.getResource(pathStr);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (file != <span class="keyword">null</span> &amp;&amp; file.isDirectory() &amp;&amp; contextVersion.object.getMapperDirectoryRedirectEnabled()) &#123;</span><br><span class="line">                <span class="comment">// Note: this mutates the path: do not do any processing</span></span><br><span class="line">                <span class="comment">// after this (since we set the redirectPath, there</span></span><br><span class="line">                <span class="comment">// shouldn't be any)</span></span><br><span class="line">                path.setOffset(pathOffset);</span><br><span class="line">                path.append(<span class="string">'/'</span>);</span><br><span class="line">                mappingData.redirectPath.setChars(path.getBuffer(), path.getStart(), path.getLength());</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mappingData.requestPath.setString(pathStr);</span><br><span class="line">                mappingData.wrapperPath.setString(pathStr);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    path.setOffset(pathOffset);</span><br><span class="line">    path.setEnd(pathEnd);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>精确匹配(Exact Match)</li>
+<li>前缀匹配(Prefix Match)</li>
+<li>后缀匹配(Extension Match)</li>
+<li>加入欢迎页面地址匹配(Welcome resources processing for servlets)<br> 4.1. 欢迎页面精确匹配(Welcome resources processing for exact macth)<br> 4.2. 欢迎页面前缀匹配(Welcome resources processing for prefix match)<br> 4.3. 欢迎页面静态文件匹配(Welcome resources processing for physical folder)<br> 4.4. 欢迎页面后缀匹配(welcome file processing - take 2)</li>
+<li>默认Servlet路径“/”匹配(Default servlet)</li>
+</ol>
+<p>进入 <code>Mapper</code> 时由于首次启动访问主页URL为 <code>http://host:port/project/</code> 以“/”结尾，故步骤1、2、3均匹配失败。<br>进入步骤4，请求URL变为 <code>http://host:port/project/*.action</code> 。<br>然而 <code>wrapper容器</code> 仅支持查找 <code>Servlet</code> ，故步骤4.1、4.2均失败，由于未创建文件 <code>*.action</code> 故步骤4.3依旧失败。<br><code>wrapper容器</code> 仅支持查找 <code>Servlet</code> ，同理步骤4.4也失败。<br>URL重新退化为 <code>http://host:port/project/</code> 进入步骤7成功匹配，传给过滤器(filter)处理，进入Struts2框架。<br>Struts2框架无法匹配此URL对应action，故主页设置未生效。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此，Struts2框架基本使用方法掌握。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <img id='author-avatar' width='20px' alt='CC许可协议' title='CC许可协议' src='https://creativecommons.org/images/deed/cc-logo.jpg' /><img id='author-avatar' width='20px' alt='署名' title='署名' src='https://creativecommons.org/images/deed/by.png' /><img id='author-avatar' width='20px' alt='非商业性使用' title='非商业性使用' src='https://creativecommons.org/images/deed/nc.png' /><img id='author-avatar' width='20px' alt='相同方式共享' title='相同方式共享' src='https://creativecommons.org/images/deed/sa.png' /><br/>本文采用 <a rel='nofollow noopener noreferrer' href='https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh' target='_blank'>CC BY-NC-SA 3.0 Unported</a> 协议进行许可
+                        </strong>
+                        <!--
+                        <br>
+                        <strong>本文链接：</strong><a href="https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/">https://gh-orange.github.io/2018/04/05/SSH框架-初识Struts2/</a>
+                        -->
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTgzNi8xMjM3Mg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/04/06/开源协议总结/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/02/剑指Offer-题9-用两个栈实现队列/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://u.cubeupload.com/orange/sidebarheader.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://u.cubeupload.com/orange/avatar.png" alt="Orange's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        cz335360@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:cz335360@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">11</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/剑指Offer/">剑指Offer<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据库/">数据库<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂项/">杂项<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/框架/">框架<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags/" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/links/" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">link</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about/" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+    
+    <!-- Visiters Number  -->
+    
+        
+            <li>
+                <a href="javascript:void(0)">
+                    
+                        <i class="material-icons sidebar-material-icons">insert_chart</i>
+                    
+                    浏览量
+                    <span id="busuanzi_container_site_uv">
+                        <span id="busuanzi_value_site_uv" class="sidebar-badge"></span>
+                    </span>
+                </a>
+            </li>
+            
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/cz111000" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Orange's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">由 <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a> 强力驱动</div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#FA0'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FA0, 0 0 15px #FA0'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FA0',
+        'border-left-color': '#FA0'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- Sidecar Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'cz111000-github-io/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com">
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            SSH框架-初识Hibernate | 
+        
+        Orange&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://u.cubeupload.com/orange/logo.png">
+    <link rel="icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="Orange&#39;s Blog">
+    <meta name="keywords" content="Orange,Blog,SSH,框架,Hibernate">
+    <meta name="theme-color" content="#FFA500">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?9LPOkz2mGpTIbimW1m6jOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?oWP/xO7B/HR5HyTeFEJzSw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night-eighties.min.css?as25J1I+1SbOMXftxplbHQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #FFB313;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #FFA500 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #FFA500 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #FFA500 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #FFB313;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(https://u.cubeupload.com/orange/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Orange&#39;s Blog">
+    <meta name="msapplication-starturl" content="https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/">
+    <meta name="msapplication-navbutton-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Orange&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://u.cubeupload.com/orange/logo.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="SSH框架-初识Hibernate | Orange&#39;s Blog">
+    <meta property="og:image" content="https://u.cubeupload.com/orange/logo.png">
+    <meta property="og:description" content="Orange&#39;s Blog">
+    <meta property="og:article:tag" content="SSH"> <meta property="og:article:tag" content="框架"> <meta property="og:article:tag" content="Hibernate"> 
+
+    
+        <meta property="article:published_time" content="Sun Apr 08 2018 11:27:08 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jun 20 2021 14:23:33 GMT+0000">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/index.html",
+    "headline": "SSH框架-初识Hibernate",
+    "datePublished": "Sun Apr 08 2018 11:27:08 GMT+0800",
+    "dateModified": "Sun Jun 20 2021 14:23:33 GMT+0000",
+    "author": {
+        "@type": "Person",
+        "name": "Orange",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://u.cubeupload.com/orange/avatar.png"
+        },
+        "description": "Bring Fresh Things to Your"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Orange&#39;s Blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://u.cubeupload.com/orange/logo.png"
+        }
+    },
+    "keywords": ",SSH,框架,HibernateOrange,Blog",
+    "description": "Orange&#39;s Blog",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:auto;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ROM技术"><span class="post-toc-number">2.</span> <span class="post-toc-text">ROM技术</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hibernate简介"><span class="post-toc-number">3.</span> <span class="post-toc-text">Hibernate简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hibernate原理"><span class="post-toc-number">4.</span> <span class="post-toc-text">Hibernate原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hibernate使用"><span class="post-toc-number">5.</span> <span class="post-toc-text">Hibernate使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境配置"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">环境配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#映射数据表"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">映射数据表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#id"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">id</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#generator"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">generator</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#property"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">property</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#set"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#key"><span class="post-toc-number">5.2.5.</span> <span class="post-toc-text">key</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#one-to-one"><span class="post-toc-number">5.2.6.</span> <span class="post-toc-text">one-to-one</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#one-to-many"><span class="post-toc-number">5.2.7.</span> <span class="post-toc-text">one-to-many</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#many-to-one"><span class="post-toc-number">5.2.8.</span> <span class="post-toc-text">many-to-one</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#many-to-many"><span class="post-toc-number">5.2.9.</span> <span class="post-toc-text">many-to-many</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注解"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Entity"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">@Entity</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Table"><span class="post-toc-number">5.3.2.</span> <span class="post-toc-text">@Table</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Embeddable"><span class="post-toc-number">5.3.3.</span> <span class="post-toc-text">@Embeddable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Embedded"><span class="post-toc-number">5.3.4.</span> <span class="post-toc-text">@Embedded</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#EmbeddedId"><span class="post-toc-number">5.3.5.</span> <span class="post-toc-text">@EmbeddedId</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Id"><span class="post-toc-number">5.3.6.</span> <span class="post-toc-text">@Id</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GeneratedValue"><span class="post-toc-number">5.3.7.</span> <span class="post-toc-text">@GeneratedValue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GenericGenerator"><span class="post-toc-number">5.3.8.</span> <span class="post-toc-text">@GenericGenerator</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Column"><span class="post-toc-number">5.3.9.</span> <span class="post-toc-text">@Column</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JoinColumn"><span class="post-toc-number">5.3.10.</span> <span class="post-toc-text">@JoinColumn</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JoinTable"><span class="post-toc-number">5.3.11.</span> <span class="post-toc-text">@JoinTable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OneToOne"><span class="post-toc-number">5.3.12.</span> <span class="post-toc-text">@OneToOne</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OneToMany"><span class="post-toc-number">5.3.13.</span> <span class="post-toc-text">@OneToMany</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ManyToOne"><span class="post-toc-number">5.3.14.</span> <span class="post-toc-text">@ManyToOne</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ManyToMany"><span class="post-toc-number">5.3.15.</span> <span class="post-toc-text">@ManyToMany</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建模型"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">创建模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用映射数据表"><span class="post-toc-number">5.4.1.</span> <span class="post-toc-text">使用映射数据表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用注解"><span class="post-toc-number">5.4.2.</span> <span class="post-toc-text">使用注解</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作方法"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">操作方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session-createQuery"><span class="post-toc-number">5.5.1.</span> <span class="post-toc-text">session.createQuery()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session-get"><span class="post-toc-number">5.5.2.</span> <span class="post-toc-text">session.get()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session-load"><span class="post-toc-number">5.5.3.</span> <span class="post-toc-text">session.load()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session-save"><span class="post-toc-number">5.5.4.</span> <span class="post-toc-text">session.save()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#session-delete"><span class="post-toc-number">5.5.5.</span> <span class="post-toc-text">session.delete()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://img.vim-cn.com/5f/f3ff4faebc139c2ec117c4f2b4fa24fde3c440.png)">
+    
+            <p class="article-headline-p">
+                SSH框架-初识Hibernate
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://u.cubeupload.com/orange/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Orange</strong>
+        <span>4月 08, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Hibernate/">Hibernate</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/SSH/">SSH</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/框架/">框架</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=SSH框架-初识Hibernate&url=https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/index.html&pic=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=SSH框架-初识Hibernate&url=https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/index.html&via=Orange" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Orange&#39;s Blog&title=SSH框架-初识Hibernate&summary=Orange&#39;s Blog&pics=https://gh-orange.github.iohttps://u.cubeupload.com/orange/logo.png&url=https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>早期的应用程序均直接调用数据库软件提供的方法手册读取数据，当需要对数据库进行更换、升级时，必须重写与数据库的通讯方法，这对开发人员是个巨大的挑战。因此孕育出JDBC解决方案。<br>JDBC(Java DataBase Connectivity)方案是Java连接数据库的标准规范。通过增加一层固定的标准类与接口，使得开发人员无需关注数据库操作方法，只需调用JDBC提供的各种API即可。而数据库生产商只需实现JDBC驱动层即可。如图所示：<br><img src="https://img.vim-cn.com/62/cf9adff5bed9654011a935c0f44be15980eb94.png" alt="JDBC简图"> <img src="https://img.vim-cn.com/e9/9d088616fa0c3a624145894150334460afb475.png" alt="JDBC API"><br>JDBC执行流程图如下：<br><img src="https://img.vim-cn.com/7c/4a08c875f8ffc2c4077b8979fba1fb54bd81a3.png" alt="JDBC执行流程图"><br>现在只需导入相应数据库JDBC驱动包，根据流程图，即可写出如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//根据Java反射机制动态加载驱动程序</span></span><br><span class="line">        Class.forName(<span class="string">"com.dataBase.jdbc.Driver"</span>);</span><br><span class="line">        <span class="keyword">return</span> DriverManager.getConnection(</span><br><span class="line">                        <span class="string">"jdbc:dataBase://localhost:port/example"</span>,</span><br><span class="line">                        <span class="string">"username"</span>,</span><br><span class="line">                        <span class="string">"password"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> price;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Product</span><span class="params">(<span class="keyword">int</span> id, String name, <span class="keyword">float</span> price)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.price = price;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getProduct</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        Statement st = <span class="keyword">null</span>;</span><br><span class="line">        ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            conn = JDBCUtil.getConnection();</span><br><span class="line">            st = conn.createStatement();</span><br><span class="line">            rs = st.executeQuery(<span class="string">"select id,name,price from t_product where id='"</span> + id + <span class="string">"'"</span>);</span><br><span class="line">            <span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">                <span class="keyword">int</span> id = rs.getInt(<span class="string">"id"</span>);</span><br><span class="line">                String name = rs.getString(<span class="string">"name"</span>);</span><br><span class="line">                <span class="keyword">float</span> price = rs.getFloat(<span class="string">"price"</span>);</span><br><span class="line">                Product product = <span class="keyword">new</span> Product(id, name, price);</span><br><span class="line">                <span class="keyword">return</span> product;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                rs.close();</span><br><span class="line">                st.close();</span><br><span class="line">                conn.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span>(SQLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在只用JDBCUtil类即可，而无需关心数据库调用方式。不过每次执行SQL语句均需重新创建Connection对象与数据库连接，且代码中依旧夹杂着驱动程序包名、JDBC URL地址、用户名、密码，不便修改。于是引入JNDI技术，通过创建数据库连接池缓存Connection对象，同时将配置字段写入XML配置文件，无需改动JDBC连接代码，以不变应万变。以Tomcat为例，操作如下：</p>
+<ol>
+<li><p>配置Tomcat，在web.xml配置文件中写入如下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">resource-ref</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">res-ref-name</span>&gt;</span>dataBaseDataSource<span class="tag">&lt;/<span class="name">res-ref-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">res-ref-type</span>&gt;</span>javax.sql.DataSource<span class="tag">&lt;/<span class="name">res-ref-type</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">res-auth</span>&gt;</span>Container<span class="tag">&lt;/<span class="name">res-auth</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">res-sharing-scope</span>&gt;</span>Shareable<span class="tag">&lt;/<span class="name">res-sharing-scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource-ref</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在MATA-INF文件夹中创建文件 <code>context.xml</code> 并写入以下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">antiJARLocking</span>=<span class="string">"true"</span> <span class="attr">path</span>=<span class="string">"/webProject"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--auth="Container"表示资源由容器管理--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Resource</span></span></span><br><span class="line"><span class="tag">        <span class="attr">name</span>=<span class="string">"dataBaseDataSource"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">auth</span>=<span class="string">"Container"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">type</span>=<span class="string">"javax.sql.DataSource"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">driverClassName</span>=<span class="string">"com.dataBase.jdbc.Driver"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">url</span>=<span class="string">"jdbc:dataBase://localhost:port/example"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">username</span>=<span class="string">"username"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">password</span>=<span class="string">"password"</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建JNDI工具类用于连接数据库</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JNDIUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Connection connOracle = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Context initContext = <span class="keyword">new</span> InitialContext();</span><br><span class="line">            DataSource ds = (DataSource)initContext.lookup(<span class="string">"java:comp/env/dataBaseDataSource"</span>);</span><br><span class="line">            <span class="keyword">return</span> ds.getConnection();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>JNDI执行流程图如下：<br><img src="https://img.vim-cn.com/a9/47aa816bdbbafe3533c208ccd59dd8572e6f52.png" alt="JNDI执行流程图"></p>
+<ol>
+<li>创建Context对象读取配置文件</li>
+<li>通过DataSource数据资源对象应用配置创建数据库连接池</li>
+<li>创建Connection数据库连接对象，连接数据库</li>
+<li>创建Statement数据库操作对象，用于数据存取操作</li>
+<li>调用Statement会话对象的数据库操作方法返回ResultSet结果集对象。</li>
+</ol>
+<p>然而在有关数据库的操作代码中，我们依然需要使用 <code>模型(POJO, 即JavaBean) + 数据库操作层(Dao)</code> 模式，在Dao层（如上文ProductDao类）编写大量冗余代码以及不同SQL语句，为让生活更加美好，对JDBC轻量封装的Hibernate横空出世，其采用的ROM框架技术大受追捧。</p>
+<h1 id="ROM技术"><a href="#ROM技术" class="headerlink" title="ROM技术"></a>ROM技术</h1><p>由于Java是面向对象编程（OOP）语言与关系型数据库思想格格不入，故产生ORM(Object Relationship Mapping)即对象关系映射技术，使开发人员更加专注于面向对象思考。</p>
+<h1 id="Hibernate简介"><a href="#Hibernate简介" class="headerlink" title="Hibernate简介"></a>Hibernate简介</h1><p>Hibernate为一实现<strong>JPA标准（即 ROM+实体对象持久化 标准）</strong>的开源对象关系映射框架，支持分布式数据库。其对JDBC进行了轻量级对象封装，使得由直接操纵数据库变成使用依据映射数据表（XML配置文件）或注解生成的Java类，且生成的实体对象持续自动将数据变动保存至数据库（即持久化技术），从而以对象编程思维操纵数据库。同时，Hibernate摆脱不同数据库SQL语句差异，转而接收符合描述对象的HQL语句操作。</p>
+<h1 id="Hibernate原理"><a href="#Hibernate原理" class="headerlink" title="Hibernate原理"></a>Hibernate原理</h1><p>Hibernate原理如图所示：<br><img src="https://img.vim-cn.com/70/c704106616b6ce07f62dc11f70ae1d23375337.png" alt="Hibernate原理"></p>
+<ul>
+<li>持久化对象：依据映射数据表（HBM，即关于类的XML配置文件）或注解生成的能够持续自动将数据变动保存至数据库的实体对象。</li>
+<li>配置文件：即Hibernate配置文件hibernate.cfg.xml。</li>
+<li>映射文件：持久化对象的Java类对应的映射数据表文件object.hbm.xml（如student.hbm.xml），用于数据库数据与Java对象转化。</li>
+</ul>
+<p>Hibernate执行流程如下：<br><img src="https://img.vim-cn.com/e1/6ad72dd100a768dae58a22eabe13bb6854487c.png" alt="Hibernate执行流程图"></p>
+<ol>
+<li>创建Configuration对象读取hibernate.cfg.xml配置文件</li>
+<li>通过StandardServiceRegistryBuilder对象应用配置创建ServiceRegistry服务注册对象用于注册各项服务</li>
+<li>创建MetaData元数据（数据库信息）对象，此步可省略，仅当需要执行表结构操作时使用</li>
+<li>创建SessionFactory会话工厂对象，通过Configuration对象的 <code>buildSessionFactory(serviceRegistry)</code> 传入服务注册对象注册此工厂服务，用于生产封装了连接池中Connection对象的会话（Session）对象；若存在MetaData对象，也可调用其 <code>buildSessionFactory()</code> 方法</li>
+<li>创建Session会话对象，用于数据存取操作</li>
+<li>调用Session会话对象的 <code>beginTransaction()</code> 开启事务，通过回滚等操作避免部分修改造成数据不完整，确保数据库被正确修改</li>
+<li>调用Session会话对象的数据库操作方法直接返回对象结果。</li>
+</ol>
+<p><strong>对比JNDI发现除去可省略的获取元数据对象步骤3，以及启动事务步骤6，基本大同小异。</strong><br>依据流程图，写出如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Metadata metadata;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SessionFactory sessionFactory;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Session session;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Transaction transaction;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        Configuration configuration = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">        ServiceRegistry serviceRegistry = <span class="keyword">new</span> StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).configure().build();</span><br><span class="line">        metadata = <span class="keyword">new</span> MetadataSources(serviceRegistry).buildMetadata();</span><br><span class="line">        sessionFactory = metadata.buildSessionFactory();</span><br><span class="line">        session = sessionFactory.openSession();</span><br><span class="line">        transaction = session.beginTransaction();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getProduct</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Product product = HibernateUtil.session.get(Product.class, id);</span><br><span class="line">            <span class="keyword">return</span> product;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                HibernateUtil.transaction.commit();</span><br><span class="line">                HibernateUtil.session.close();</span><br><span class="line">                HibernateUtil.sessionFactory.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span>(SQLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>省时省力有木有😂！<br><strong>Hibernate不但支持单个数据库JDBC连接方式，也支持多个数据库JTA连接方式</strong>，本文仅讨论单个数据库连接方式。</p>
+<h1 id="Hibernate使用"><a href="#Hibernate使用" class="headerlink" title="Hibernate使用"></a>Hibernate使用</h1><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
+<li>创建Java或Java Web项目并导入与Hibrenate相关的Jar开发包。<a href="http://hibernate.org/orm/releases/" target="_blank" rel="noopener">开发包下载地址</a></li>
+<li><p>在src文件夹内创建hibernate.cfg.xml文件，该文件用于配置数据库连接方式、驱动程序包名、JDBC URL地址、用户名、密码等</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Hibernate/Hibernate Configuration DTD//EN"</span></span><br><span class="line"><span class="meta">        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.url"</span>&gt;</span>jdbc:dataBase://localhost:port/schema<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.driver_class"</span>&gt;</span>com.dataBase.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--属性dialect表示SQL方言，使用对应于数据库的SQL方言配置提高数据库操作效率--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dialect"</span>&gt;</span>org.hibernate.dialect.DataBaseDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.username"</span>&gt;</span>username<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.password"</span>&gt;</span>password<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--输出SQL语句至控制台，一般用于调试--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--格式化SQL语句，即美化显示SQL语句--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--最近会话的上下文（相关环境）类，仅当使用sessionFactory.getCurrentSession()时需要此配置--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--分thread、jta、指定事务管理类名三种取值，thread表示在当前线程事务管理对象中寻找最近会话，jta表示在分布式事务管理对象中寻找最近会话--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--由于本文不讨论JTA分布式数据库连接方式，故只能取值thread--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"current_session_context_class"</span>&gt;</span>thread<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--HBM（映射数据表）转DDL（数据库模式定义语言，即SQL关键词中的create alter drop ...）方式--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--分create、update两种取值，前者每次操作将重新创建表，后者仅修改表--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">         </span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建Hibernate工具类进行使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Metadata metadata;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> SessionFactory sessionFactory;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Session session;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Transaction transaction;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        Configuration configuration = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">        ServiceRegistry serviceRegistry = <span class="keyword">new</span> StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).configure().build();</span><br><span class="line">        metadata = <span class="keyword">new</span> MetadataSources(serviceRegistry).buildMetadata();</span><br><span class="line">        sessionFactory = metadata.buildSessionFactory();</span><br><span class="line">        <span class="comment">//使用getCurrentSession()无需手动关闭会话，由会话管理上下文（即事务管理对象）控制</span></span><br><span class="line">        session = sessionFactory.getCurrentSession();</span><br><span class="line">        transaction = session.beginTransaction();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="映射数据表"><a href="#映射数据表" class="headerlink" title="映射数据表"></a>映射数据表</h2><p>映射数据表文件内容模板如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding='UTF-8'?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Hibernate/Hibernate Mapping DTD//EN"</span></span><br><span class="line"><span class="meta">        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--属性package对应包名--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span> <span class="attr">package</span>=<span class="string">"pacakge"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--属性name对应JavBean的类名--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--属性table对应数据库中存储此类数据的表名--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"student"</span> <span class="attr">table</span>=<span class="string">"tb_table"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>id标签用于指定主键，例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"sid"</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h3><p>generator标签用于指定主键生成策略（手动输入或自动增长等），例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"sid"</span> <span class="attr">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--native表示主键值自动增长，根据数据库不同自动选择对应自增配置方式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>以下为class属性值可选内容：</p>
+<ul>
+<li>assigned：主键由程序生成</li>
+<li>increment：主键为表中最大值加一</li>
+<li>hilo：主键由高低位方式（high low）生成。先在表中增长high值，再在[0, max_low]区间中增长low值，最后计算high * (max_low + 1) + low得出主键值</li>
+<li>seqhilo：同理hilo，使用序列存储high值</li>
+<li>sequence：主键为序列中最大值加一</li>
+<li>identity：主键由数据库自增字段生成</li>
+<li>native：主键由identity或hilo或sequence生成</li>
+<li>uuid：主键为通用唯一标识符（UUID）字符串</li>
+<li>guid：类似uuid，主键为全球唯一标识符（GUID）字符串</li>
+<li>foreign：主键为另一表中主键</li>
+<li>select：主键由触发器生成</li>
+</ul>
+<h3 id="property"><a href="#property" class="headerlink" title="property"></a>property</h3><p>property标签用于指定普通属性，例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--column表示该字段在数据库中对应列--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--not-null表示该字段在数据库中是否禁止为空--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">column</span>=<span class="string">"sName"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">not-null</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>set标签用于指定集合属性，例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--lazy表示是否采用延迟加载，即读取时才查找表中数据组成集合--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"scoreSet"</span> <span class="attr">lazy</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><p>key标签用于指定集合对应的外键列<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"scoreSet"</span> <span class="attr">lazy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"scoreId"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="one-to-one"><a href="#one-to-one" class="headerlink" title="one-to-one"></a>one-to-one</h3><p>one-to-one标签用于指定一对一关系，如学生信息表对身份证表<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--cascade表示进行关联操作的时机--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">one-to-one</span> <span class="attr">name</span>=<span class="string">"cardId"</span> <span class="attr">class</span>=<span class="string">"package.Identity"</span> <span class="attr">cascade</span>=<span class="string">"save-update"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="one-to-many"><a href="#one-to-many" class="headerlink" title="one-to-many"></a>one-to-many</h3><p>one-to-many标签用于指定一对多关系，如教室表对学生信息表<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--写于Class.hbm.xml文件中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"userSet"</span> <span class="attr">inverse</span>=<span class="string">"true"</span> <span class="attr">lazy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"sid"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"package.User"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="many-to-one"><a href="#many-to-one" class="headerlink" title="many-to-one"></a>many-to-one</h3><p>many-to-one标签用于指定多对一关系，如学生信息表对教室表<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--写于Student.hbm.xml文件中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"userSet"</span> <span class="attr">inverse</span>=<span class="string">"true"</span> <span class="attr">lazy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"sid"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">class</span>=<span class="string">"package.User"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="many-to-many"><a href="#many-to-many" class="headerlink" title="many-to-many"></a>many-to-many</h3><p>many-to-many标签用于指定多对多关系，如学生信息表对教师表<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"userSet"</span> <span class="attr">inverse</span>=<span class="string">"true"</span> <span class="attr">lazy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"sid"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">many-to-many</span> <span class="attr">class</span>=<span class="string">"package.User"</span> <span class="attr">column</span>=<span class="string">"sid"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><p>除某些表示类的注解外，适用于属性的注解既可置于属性上，也可置于对应get方法上，<strong>建议置于方法上</strong>。<br>关系注解可组合使用，如@OneToMany与@ManyToOne可分别在两个类中同时出现。</p>
+<h3 id="Entity"><a href="#Entity" class="headerlink" title="@Entity"></a>@Entity</h3><p>Entity注解用于表示类为实体（映射对象）类，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Table"><a href="#Table" class="headerlink" title="@Table"></a>@Table</h3><p>Table注解用于表示类对应的数据库表信息，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Embeddable"><a href="#Embeddable" class="headerlink" title="@Embeddable"></a>@Embeddable</h3><p>Embeddable注解用于表示类为嵌入式实体（映射对象）类（即数据库表中嵌入其所有属性，而不单独创建表），常与@Embedded联用，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Embeddable</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String country;</span><br><span class="line">    <span class="keyword">private</span> String province;</span><br><span class="line">    <span class="keyword">private</span> String city;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Embedded"><a href="#Embedded" class="headerlink" title="@Embedded"></a>@Embedded</h3><p>Embedded注解用于表示嵌入式属性约束（即数据库表中嵌入其所有属性，而不单独创建表），常与@Embeddable联用，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Embeddable</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String country;</span><br><span class="line">    <span class="keyword">private</span> String province;</span><br><span class="line">    <span class="keyword">private</span> String city;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Address address;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Embedded</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAddress</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> address; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(Address address)</span> </span>&#123; <span class="keyword">this</span>.address = address; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="EmbeddedId"><a href="#EmbeddedId" class="headerlink" title="@EmbeddedId"></a>@EmbeddedId</h3><p>EmbeddedId注解用于表示嵌入式主键属性约束，类似@Embedded，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Embeddable</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimaryKey</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PrimaryKey</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> PrimaryKey primaryKey;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@EmbeddedId</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrimaryKey</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> primaryKey; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPrimaryKey</span><span class="params">(PrimaryKey primaryKey)</span> </span>&#123; <span class="keyword">this</span>.primaryKey = primaryKey; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Id"><a href="#Id" class="headerlink" title="@Id"></a>@Id</h3><p>Id注解用于表示主键属性，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(generator = <span class="string">"AutoInc"</span>)</span><br><span class="line">    <span class="meta">@GenericGenerator</span>(name = <span class="string">"AutoInc"</span>, strategy = <span class="string">"native"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="GeneratedValue"><a href="#GeneratedValue" class="headerlink" title="@GeneratedValue"></a>@GeneratedValue</h3><p>GeneratedValue注解用于表示主键属性，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="comment">// strategy表示默认主键生成方法，generator表示自定义主键生成器（默认为空，无需设定）</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.AUTO, generator=<span class="string">""</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以下为strategy属性值可选内容：</p>
+<ul>
+<li>GenerationType.AUTO：主键由程序生成</li>
+<li>GenerationType.IDENTITY：主键由数据库自增字段生成</li>
+<li>GenerationType.SEQUENCE：主键为序列中最大值加一</li>
+<li>GenerationType.TABLE：主键为新建表中最大值加一</li>
+</ul>
+<h3 id="GenericGenerator"><a href="#GenericGenerator" class="headerlink" title="@GenericGenerator"></a>@GenericGenerator</h3><p>由于GeneratedValue取值不够灵活<br>GenericGenerator注解用于定义自定义主键生成器，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GenericGenerator</span>(name = <span class="string">"AutoInc"</span>, strategy = <span class="string">"native"</span>)</span><br><span class="line">    <span class="meta">@GeneratedValue</span>(generator = <span class="string">"AutoInc"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Column"><a href="#Column" class="headerlink" title="@Column"></a>@Column</h3><p>Column注解用于表示属性对应列，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String introduce;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"column_introduce"</span>, length = <span class="number">100</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIntroduce</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> introduce; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIntroduce</span><span class="params">(String introduce)</span> </span>&#123; <span class="keyword">this</span>.introduce = introduce; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="JoinColumn"><a href="#JoinColumn" class="headerlink" title="@JoinColumn"></a>@JoinColumn</h3><p>JoinColumn注解用于表示应用某种关系而加入主表的列，常与@OneToOne、@OneToMany、@ManyToOne、@ManyToMany注解一同使用</p>
+<h3 id="JoinTable"><a href="#JoinTable" class="headerlink" title="@JoinTable"></a>@JoinTable</h3><p>JoinTable注解用于表示应用某种关系而加入的中间（关系）表，常与@JoinColumn、@ManyToMany注解一同使用</p>
+<h3 id="OneToOne"><a href="#OneToOne" class="headerlink" title="@OneToOne"></a>@OneToOne</h3><p>OneToOne注解用于表示一对一关系，如学生信息表对身份证表，分以下两种情况：</p>
+<ol>
+<li><p>默认身份证类不存储对应学生对象，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_identify"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Identify</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String cardId;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Identify</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCardId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> cardId; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCardId</span><span class="params">(String cardId)</span> </span>&#123; <span class="keyword">this</span>.cardId = cardId; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> Identify identify;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="comment">//cascade表示进行关联操作的时机</span></span><br><span class="line">    <span class="comment">//分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作</span></span><br><span class="line">    <span class="meta">@OneToOne</span>(cascade = CascadeTtype.ALL)</span><br><span class="line">    <span class="comment">//加入主表tb_student的外键列</span></span><br><span class="line">    <span class="comment">//name表示列名</span></span><br><span class="line">    <span class="comment">//referencedColumnName表示对应外表列名</span></span><br><span class="line">    <span class="comment">//unique表示是否唯一，由于一对一关系不包含重复内容，故设置为true</span></span><br><span class="line">    <span class="meta">@JoinColum</span>(name = <span class="string">"cardId"</span>, referencedColumnName = <span class="string">"cardId"</span>, unique = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Identify <span class="title">getIdentify</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> identify; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIdentify</span><span class="params">(Identify identify)</span> </span>&#123; <span class="keyword">this</span>.identify = identify; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 此时数据库中，主表 <code>tb_student</code> 将添加 <code>cardId</code> 列作为外键关联于表 <code>tb_identify</code> 的 <code>cardId</code> 列<br> <img src="https://img.vim-cn.com/3a/f003b6d56b305f945f3cfe916c7a6d264902b4.png" alt="数据库表图"></p>
+</li>
+<li><p><strong>不改变数据库表</strong>使身份证类存储对应学生对象，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_identify"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Identify</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String cardId;</span><br><span class="line">    <span class="keyword">private</span> TbStudentEntity student;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Identify</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCardId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> cardId; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCardId</span><span class="params">(String cardId)</span> </span>&#123; <span class="keyword">this</span>.cardId = cardId; &#125;</span><br><span class="line">    <span class="comment">//mappedBy表示该属性为被控属性，内容由TbStudentEntity对象的getIdentify()方法控制，tb_identify表并不包含此列</span></span><br><span class="line">    <span class="meta">@OneToOne</span>(mappedBy = <span class="string">"identify"</span>)</span><br><span class="line">    <span class="meta">@JoinColum</span>(name = <span class="string">"cardId"</span>, unique = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TbStudentEntity <span class="title">getStudent</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> student; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudent</span><span class="params">(TbStudentEntity student)</span> </span>&#123; <span class="keyword">this</span>.student = student; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> Identify identify;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="comment">//cascade表示进行关联操作的时机</span></span><br><span class="line">    <span class="comment">//分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作</span></span><br><span class="line">    <span class="meta">@OneToOne</span>(cascade = CascadeTtype.ALL)</span><br><span class="line">    <span class="comment">//加入主表tb_student的外键列</span></span><br><span class="line">    <span class="comment">//name表示列名</span></span><br><span class="line">    <span class="comment">//referencedColumnName表示对应外表列名</span></span><br><span class="line">    <span class="comment">//unique表示是否唯一，由于一对一关系不包含重复内容，故设置为true</span></span><br><span class="line">    <span class="meta">@JoinColum</span>(name = <span class="string">"cardId"</span>, referencedColumnName = <span class="string">"cardId"</span>, unique = <span class="keyword">true</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Identify <span class="title">getIdentify</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> identify; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIdentify</span><span class="params">(Identify identify)</span> </span>&#123; <span class="keyword">this</span>.identify = identify; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 此时数据库中，主表 <code>tb_student</code> 将添加 <code>cardId</code> 列作为外键关联于表 <code>tb_identify</code> 的 <code>cardId</code> 列<br> <img src="https://img.vim-cn.com/3a/f003b6d56b305f945f3cfe916c7a6d264902b4.png" alt="数据库表图"></p>
+</li>
+</ol>
+<h3 id="OneToMany"><a href="#OneToMany" class="headerlink" title="@OneToMany"></a>@OneToMany</h3><p>OneToMany注解用于表示一对多关系，如教室表对学生信息表，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_classroom"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassRoom</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> roomId;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Student&gt; students;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassRoom</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRoomId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> roomId; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRoomId</span><span class="params">(<span class="keyword">int</span> roomId)</span> </span>&#123; <span class="keyword">this</span>.roomId = roomId; &#125;</span><br><span class="line">    <span class="comment">//cascade表示进行关联操作的时机</span></span><br><span class="line">    <span class="comment">//分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作</span></span><br><span class="line">    <span class="comment">//fetch表示进行关联加载的态度</span></span><br><span class="line">    <span class="comment">//分为eager、lazy两种取值，eager即积极态度立即进行关联加载，lazy即懒散态度用时进行关联加载</span></span><br><span class="line">    <span class="comment">//此处读取学生集合需大量查询故选择lazy</span></span><br><span class="line">    <span class="meta">@OneToMany</span>(cascade = CascadeTtype.ALL, fetch = FetchType.LAZY)</span><br><span class="line">    <span class="comment">//加入主表tb_student的外键列</span></span><br><span class="line">    <span class="comment">//name表示列名</span></span><br><span class="line">    <span class="comment">//referencedColumnName表示对应外表列名</span></span><br><span class="line">    <span class="meta">@JoinColumn</span>(name = <span class="string">"crId"</span>, referencedColumnName = <span class="string">"roomId"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;Student&gt; <span class="title">getStduents</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> students; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStduents</span><span class="params">(Set&lt;Student&gt; students)</span> </span>&#123; <span class="keyword">this</span>.students = students; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>此时数据库中，主表 `tb_student` 将添加 `crId` 列作为外键关联于表 `tb_classroom` 的 `roomId` 列
+![数据库表图](https://img.vim-cn.com/e7/ac6932a41a10bc21e451063cb10db9fdefa210.png)
+</code></pre><h3 id="ManyToOne"><a href="#ManyToOne" class="headerlink" title="@ManyToOne"></a>@ManyToOne</h3><p>ManyToOne注解用于表示多对一关系，如学生信息表对教室表，例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_classroom"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassRoom</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> roomId;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassRoom</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getRoomId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> roomId; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRoomId</span><span class="params">(<span class="keyword">int</span> roomId)</span> </span>&#123; <span class="keyword">this</span>.roomId = roomId; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> ClassRoom room;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="comment">//cascade表示进行关联操作的时机</span></span><br><span class="line">    <span class="comment">//分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作</span></span><br><span class="line">    <span class="comment">//fetch表示进行关联加载的态度</span></span><br><span class="line">    <span class="comment">//分为eager、lazy两种取值，eager即积极态度立即进行关联加载，lazy即懒散态度用时进行关联加载</span></span><br><span class="line">    <span class="comment">//此处读取教室号无需大量查询故选择eager</span></span><br><span class="line">    <span class="meta">@ManyToOne</span>(cascade = CascadeTtype.ALL, fetch = FetchType.EAGER)</span><br><span class="line">    <span class="comment">//加入主表tb_student的外键列</span></span><br><span class="line">    <span class="comment">//name表示列名</span></span><br><span class="line">    <span class="comment">//referencedColumnName表示对应外表列名</span></span><br><span class="line">    <span class="meta">@JoinColumn</span>(name = <span class="string">"crId"</span>, referencedColumnName = <span class="string">"roomId"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ClassRoom <span class="title">getRoom</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.room; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRoom</span><span class="params">(ClassRoom room)</span> </span>&#123; <span class="keyword">this</span>.room = room; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>此时数据库中，主表 `tb_student` 将添加 `crId` 列作为外键关联于表 `tb_classroom` 的 `roomId` 列
+![数据库表图](https://img.vim-cn.com/e7/ac6932a41a10bc21e451063cb10db9fdefa210.png)
+</code></pre><h3 id="ManyToMany"><a href="#ManyToMany" class="headerlink" title="@ManyToMany"></a>@ManyToMany</h3><p>ManyToMany注解用于表示多对多关系，如学生信息表对教师表，分以下两种情况：</p>
+<ol>
+<li><p>默认在数据库中添加学生为主的中间（关系）表使学生类存储对应教师对象集合，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_teacher"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> teacherId;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTeacherId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> teacherId; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTeacherId</span><span class="params">(String teacherId)</span> </span>&#123; <span class="keyword">this</span>.teacherId = teacherId; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Teacher&gt; teachers;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="comment">//cascade表示进行关联操作的时机</span></span><br><span class="line">    <span class="comment">//分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作</span></span><br><span class="line">    <span class="meta">@ManyToMany</span>(cascade = CascadeTtype.ALL)</span><br><span class="line">    <span class="comment">//加入的中间（关系）表</span></span><br><span class="line">    <span class="comment">//name表示表名</span></span><br><span class="line">    <span class="comment">//joinColumns表示主键对应外表列集合</span></span><br><span class="line">    <span class="comment">//inverseJoinColumns表示非主键对应外表列集合</span></span><br><span class="line">    <span class="meta">@JoinTable</span>(</span><br><span class="line">        name = <span class="string">"students_teachers"</span>,</span><br><span class="line">        joinColumns = &#123;<span class="meta">@JoinColum</span>(name = <span class="string">"sid"</span>, referencedColumnName = <span class="string">"id"</span>)&#125;,</span><br><span class="line">        inverseJoinColumns = &#123;<span class="meta">@JoinColum</span>(name = <span class="string">"tid"</span>, referencedColumnName = <span class="string">"teacherId"</span>)&#125;,</span><br><span class="line">    )</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;Teacher&gt; <span class="title">getTeachers</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> teachers; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTeachers</span><span class="params">(Set&lt;Teacher&gt; teachers)</span> </span>&#123; <span class="keyword">this</span>.teachers = teachers; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 此时数据库中，中间（关系）表 <code>students_teachers</code> 将添加 <code>sid</code> 列作为外键关联于表 <code>tb_student</code> 的 <code>id</code> 列和 <code>teacherId</code> 列作为外键关联于表 <code>tb_teacher</code> 的 <code>teacherId</code> 列<br> <img src="https://img.vim-cn.com/7a/2fdb2aea6e63ead5e731a23a153869f739810d.png" alt="数据库表图"></p>
+</li>
+<li><p><strong>不添加数据库教师为主的中间（关系）表</strong>使教师类存储对应学生对象集合，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_teacher"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> teacherId;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;TbStudentEntity&gt; students;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTeacherId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> teacherId; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTeacherId</span><span class="params">(String teacherId)</span> </span>&#123; <span class="keyword">this</span>.teacherId = teacherId; &#125;</span><br><span class="line">    <span class="comment">//mappedBy表示该属性为被控属性，内容由TbStudentEntity对象的getTeachers()方法控制，并不创建中间（关系）表</span></span><br><span class="line">    <span class="meta">@ManyToMany</span>(mappedBy = <span class="string">"teachers"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;TbStudentEntity&gt; <span class="title">getStudents</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> students; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudents</span><span class="params">(Set&lt;TbStudentEntity&gt; students)</span> </span>&#123; <span class="keyword">this</span>.students = students; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Teacher&gt; teachers;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="comment">//cascade表示进行关联操作的时机</span></span><br><span class="line">    <span class="comment">//分为none、save-update、delete、all四种取值，none为默认值，即不进行关联操作，save-update即save/update时进行关联操作，delete即delete时进行关联操作，all即save/update/delete时进行关联操作</span></span><br><span class="line">    <span class="meta">@ManyToMany</span>(cascade = CascadeTtype.ALL)</span><br><span class="line">    <span class="comment">//加入的中间（关系）表</span></span><br><span class="line">    <span class="comment">//name表示表名</span></span><br><span class="line">    <span class="comment">//joinColumns表示主键对应外表列集合</span></span><br><span class="line">    <span class="comment">//inverseJoinColumns表示非主键对应外表列集合</span></span><br><span class="line">    <span class="meta">@JoinTable</span>(</span><br><span class="line">        name = <span class="string">"students_teachers"</span>,</span><br><span class="line">        joinColumns = &#123;<span class="meta">@JoinColum</span>(name = <span class="string">"sid"</span>, referencedColumnName = <span class="string">"id"</span>)&#125;,</span><br><span class="line">        inverseJoinColumns = &#123;<span class="meta">@JoinColum</span>(name = <span class="string">"tid"</span>, referencedColumnName = <span class="string">"teacherId"</span>)&#125;,</span><br><span class="line">    )</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;Teacher&gt; <span class="title">getTeachers</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> teachers; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTeachers</span><span class="params">(Set&lt;Teacher&gt; teachers)</span> </span>&#123; <span class="keyword">this</span>.teachers = teachers; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 此时数据库中，中间（关系）表 <code>students_teachers</code> 将添加 <code>sid</code> 列作为外键关联于表 <code>tb_student</code> 的 <code>id</code> 列和 <code>teacherId</code> 列作为外键关联于表 <code>tb_teacher</code> 的 <code>teacherId</code> 列<br> <img src="https://img.vim-cn.com/7a/2fdb2aea6e63ead5e731a23a153869f739810d.png" alt="数据库表图"></p>
+</li>
+</ol>
+<h2 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h2><p>本文将创建 <code>TbStudentEntity</code> 类作为JavaBrean</p>
+<h3 id="使用映射数据表"><a href="#使用映射数据表" class="headerlink" title="使用映射数据表"></a>使用映射数据表</h3><ol>
+<li><p>创建 <code>TbStudentEntity</code> 类，实现默认构造函数，以及get、set方法，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> LocalDate birthday;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSex</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> sex; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSex</span><span class="params">(String sex)</span> </span>&#123; <span class="keyword">this</span>.sex = sex; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> LocalDate <span class="title">getBirthday</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> birthday; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthday</span><span class="params">(LocalDate birthday)</span> </span>&#123; <span class="keyword">this</span>.birthday = birthday; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> address; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123; <span class="keyword">this</span>.address = address; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        TbStudentEntity that = (TbStudentEntity) o;</span><br><span class="line">        <span class="keyword">return</span> id == that.id &amp;&amp;</span><br><span class="line">                Objects.equals(name, that.name) &amp;&amp;</span><br><span class="line">                Objects.equals(sex, that.sex) &amp;&amp;</span><br><span class="line">                Objects.equals(birthday, that.birthday) &amp;&amp;</span><br><span class="line">                Objects.equals(address, that.address);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(id, name, sex, birthday, address);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时，在 <code>hibernate.cfg.xml</code> 文件中写入如下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Hibernate/Hibernate Configuration DTD//EN"</span></span><br><span class="line"><span class="meta">        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">         </span><br><span class="line">         <span class="comment">&lt;!--载入映射数据表，设置resource属性值为映射数据表文件路径--&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"package/TbStudentEntity.hbm.xml"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>随后在 <code>TbStudentEntity</code> 类同级文件夹内创建 <code>TbStudentEntity.hbm.xml</code> 映射数据表文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding='UTF-8'?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Hibernate/Hibernate Mapping DTD//EN"</span></span><br><span class="line"><span class="meta">        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span> <span class="attr">package</span>=<span class="string">"pacakge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"TbStudentEntity"</span> <span class="attr">table</span>=<span class="string">"tb_student"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"sid"</span> <span class="attr">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">column</span>=<span class="string">"sname"</span>  <span class="attr">type</span>=<span class="string">"java.lang.String"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">column</span>=<span class="string">"ssex"</span>  <span class="attr">type</span>=<span class="string">"java.lang.String"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">column</span>=<span class="string">"sage"</span>  <span class="attr">type</span>=<span class="string">"java.lang.Integer"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"birthday"</span> <span class="attr">column</span>=<span class="string">"sbirthday"</span>  <span class="attr">type</span>=<span class="string">"java.lang.LocalDate"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"address"</span> <span class="attr">column</span>=<span class="string">"saddress"</span>  <span class="attr">type</span>=<span class="string">"java.lang.String"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="使用注解"><a href="#使用注解" class="headerlink" title="使用注解"></a>使用注解</h3><p>XML文件手动编写并不方便，需用工具生成。所以<strong>Hibernate提供注解方式（注解属于JPA标准），无需编写HBM。本文建议使用注解</strong>，步骤如下：</p>
+<ol>
+<li><p>创建 <code>TbStudentEntity</code> 类，实现默认构造函数，以及get、set方法，并加上注解，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>, schema = <span class="string">"hibernate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TbStudentEntity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> LocalDate birthday;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TbStudentEntity</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(generator = <span class="string">"AutoInc"</span>)</span><br><span class="line">    <span class="meta">@GenericGenerator</span>(name = <span class="string">"AutoInc"</span>, strategy = <span class="string">"native"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSex</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> sex; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSex</span><span class="params">(String sex)</span> </span>&#123; <span class="keyword">this</span>.sex = sex; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> LocalDate <span class="title">getBirthday</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> birthday; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirthday</span><span class="params">(LocalDate birthday)</span> </span>&#123; <span class="keyword">this</span>.birthday = birthday; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> address; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123; <span class="keyword">this</span>.address = address; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        TbStudentEntity that = (TbStudentEntity) o;</span><br><span class="line">        <span class="keyword">return</span> id == that.id &amp;&amp;</span><br><span class="line">                Objects.equals(name, that.name) &amp;&amp;</span><br><span class="line">                Objects.equals(sex, that.sex) &amp;&amp;</span><br><span class="line">                Objects.equals(birthday, that.birthday) &amp;&amp;</span><br><span class="line">                Objects.equals(address, that.address);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(id, name, sex, birthday, address);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时，在 <code>hibernate.cfg.xml</code> 文件中写入如下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></span><br><span class="line"><span class="meta">        "-//Hibernate/Hibernate Configuration DTD//EN"</span></span><br><span class="line"><span class="meta">        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">         </span><br><span class="line">         <span class="comment">&lt;!--载入映射数据表，设置class属性值为映射数据表类路径--&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">class</span>=<span class="string">"package.TbStudentEntity"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h2><h3 id="session-createQuery"><a href="#session-createQuery" class="headerlink" title="session.createQuery()"></a>session.createQuery()</h3><p>该方法传入HQL语句，返回 <code>Query</code> 对象，HQL具体语法此处不再累赘<br>调用 <code>Query</code> 对象的 <code>list()</code> 方法返回对应模型类对象链表<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Query query = session.createQuery(<span class="string">"from TbStudentEntity where id = ?"</span>);</span><br><span class="line">query.setParameter(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">List&lt;TbStudentEntity&gt; students = query.list();</span><br></pre></td></tr></table></figure></p>
+<h3 id="session-get"><a href="#session-get" class="headerlink" title="session.get()"></a>session.get()</h3><p>该方法传入模型类与主键，返回对应模型类对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TbStudentEntity tbStudentEntity = session.get(tbStudentEntity.class, <span class="number">1</span>);</span><br><span class="line">System.out.println(tbStudentEntity.getClass());</span><br></pre></td></tr></table></figure></p>
+<h3 id="session-load"><a href="#session-load" class="headerlink" title="session.load()"></a>session.load()</h3><p>该方法传入模型类与主键，返回对应模型代理类的对象，取值时才对数据库进行查询<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TbStudentEntity tbStudentEntity = session.load(tbStudentEntity.class, <span class="number">1</span>);</span><br><span class="line"><span class="comment">//取值之前对象类为TbStudentEntity_$$_Javassist_0代理类</span></span><br><span class="line">System.out.println(tbStudentEntity.getClass().getName());</span><br><span class="line">System.out.println(tbStudentEntity.name);</span><br><span class="line"><span class="comment">//取值之后对象类为TbStudentEntity模型类</span></span><br><span class="line">System.out.println(tbStudentEntity.getClass().getName());</span><br></pre></td></tr></table></figure></p>
+<h3 id="session-save"><a href="#session-save" class="headerlink" title="session.save()"></a>session.save()</h3><p>该方法传入模型对象，并自动保存关联对象数据<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TbStudentEntity tbStudentEntity = <span class="keyword">new</span> TbStudentEntity(<span class="string">"小明"</span>, <span class="string">"男"</span>, LocalDate.of(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">8</span>), <span class="string">"光明小区"</span>);</span><br><span class="line">session.save(tbStudentEntity);</span><br></pre></td></tr></table></figure></p>
+<h3 id="session-delete"><a href="#session-delete" class="headerlink" title="session.delete()"></a>session.delete()</h3><p>该方法传入模型对象，删除数据库中对应数据<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TbStudentEntity tbStudentEntity = <span class="keyword">new</span> TbStudentEntity(<span class="string">"小明"</span>, <span class="string">"男"</span>, LocalDate.of(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">8</span>), <span class="string">"光明小区"</span>);</span><br><span class="line">session.delete(tbStudentEntity);</span><br></pre></td></tr></table></figure></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此，Hibernate框架基本使用方法掌握。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            <img id='author-avatar' width='20px' alt='CC许可协议' title='CC许可协议' src='https://creativecommons.org/images/deed/cc-logo.jpg' /><img id='author-avatar' width='20px' alt='署名' title='署名' src='https://creativecommons.org/images/deed/by.png' /><img id='author-avatar' width='20px' alt='非商业性使用' title='非商业性使用' src='https://creativecommons.org/images/deed/nc.png' /><img id='author-avatar' width='20px' alt='相同方式共享' title='相同方式共享' src='https://creativecommons.org/images/deed/sa.png' /><br/>本文采用 <a rel='nofollow noopener noreferrer' href='https://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh' target='_blank'>CC BY-NC-SA 3.0 Unported</a> 协议进行许可
+                        </strong>
+                        <!--
+                        <br>
+                        <strong>本文链接：</strong><a href="https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/">https://gh-orange.github.io/2018/04/08/SSH框架-初识Hibernate/</a>
+                        -->
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTgzNi8xMjM3Mg==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/04/23/SSH框架-初识Spring/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/06/开源协议总结/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://u.cubeupload.com/orange/sidebarheader.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://u.cubeupload.com/orange/avatar.png" alt="Orange's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        cz335360@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:cz335360@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">11</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/剑指Offer/">剑指Offer<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据库/">数据库<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂项/">杂项<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/框架/">框架<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/tags/" title="标签">
+                
+                    <i class="material-icons sidebar-material-icons">bookmark</i>
+                
+                标签
+            </a>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+        <li>
+            <a href="/links/" title="友链">
+                
+                    <i class="material-icons sidebar-material-icons">link</i>
+                
+                友链
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/about/" title="关于">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+    
+    <!-- Visiters Number  -->
+    
+        
+            <li>
+                <a href="javascript:void(0)">
+                    
+                        <i class="material-icons sidebar-material-icons">insert_chart</i>
+                    
+                    浏览量
+                    <span id="busuanzi_container_site_uv">
+                        <span id="busuanzi_value_site_uv" class="sidebar-badge"></span>
+                    </span>
+                </a>
+            </li>
+            
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/cz111000" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Orange's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">由 <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a> 强力驱动</div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#FA0'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FA0, 0 0 15px #FA0'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FA0',
+        'border-left-color': '#FA0'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   <!-- Sidecar Gitter -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'cz111000-github-io/community'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
